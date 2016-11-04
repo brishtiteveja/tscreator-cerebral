@@ -1,13 +1,15 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import body from'./funtion.css'
-export default body(
+import style from'./function.css'
+export default connect(
+    {},
+    {},
     function(){
-    return (
-      <div outercolonm="outer">
-        <button type="button">ADD</button>
-      
-      </div>
-    );
-  }
+      return (
+        <div className="outer">
+          <button type="button">ADD</button>
+        
+        </div>
+      );
+    }
 )

@@ -21,13 +21,20 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      include: path.resolve('src'),
-      loader: 'babel',
-      query: {
-        presets: ['es2015', 'stage-0', 'react']
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        include: path.resolve('src'),
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'stage-0', 'react']
+        }
+      },
+      {
+        test: /\.css$/,
+        include: path.resolve('src'),
+        loader: 'style-loader!css-loader',
       }
-    }]
+    ]
   }
 }
