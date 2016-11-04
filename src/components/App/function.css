@@ -1,0 +1,26 @@
+body { 
+  background: black;
+  padding: 40px; 
+}
+.counter {
+  width: 300px;
+  height:600px;
+  margin: auto;
+  background: white;
+  color: white;
+ 
+  text-align: top;
+  
+  
+  button {
+    background: green;
+    border: 0;
+    padding: 20px;
+    width: 10;
+    outline: none;
+    border-radius: 3px;
+    color: blue;
+    font-weight: bold;
+  
+  }
+}

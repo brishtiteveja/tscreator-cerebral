@@ -1,21 +1,13 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-
-export default connect({
-}, {
-},
-  function App (props) {
-  
+import body from'./funtion.css'
+export default body(
+    function(){
     return (
-      <div>
-        <p>TSCreator</p>
-	<div id="OuterContainer">
-	  <div id="Inner Container"> 
-		<div id="MakerColumns">
-		</div>
-	  </div>
-	</div>
+      <div outercolonm="outer">
+        <button type="button">ADD</button>
+      
       </div>
-    )
+    );
   }
 )
