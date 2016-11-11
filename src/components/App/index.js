@@ -7,16 +7,16 @@ export default connect(
 {},
 
 var tsc = React.createClass({
-  Tscreate :function(){
+/*  Tscreate :function(){
     <div className="block">
       </div>
-  },
+  },*/
   render: function(){
     return (
       <div className="outer">
         <div className="curve">
        
-      <button type="button" onClick = {this.Tscreate}>Add</button>
+      <button type="button" /*onClick = {this.Tscreate}*/>Add</button>
       
       </div>
       </div>
