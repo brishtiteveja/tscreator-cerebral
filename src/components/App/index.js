@@ -1,31 +1,28 @@
+/** @jsx React.DOM */
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from './function.css'
-
+import style from'./function.css'
 export default connect(
-	{},
-	{},
-	function App() {
-		const tsc = () => {	
-		  return(
-      			<div className="outer">
-				
-        			<div className="curve">
-      					<button type="button" onClick = {Tscreate()}>Add</button>
-      				</div>
-      			</div>
-		  )
-		}
+{},
+{},
 
-  		const Tscreate = () => {
-			return(
-    				<div className="block">
-      				</div>
-			)
-  		}
+var tsc = React.createClass({
+  Tscreate :function(){
+    <div className="block">
+      </div>
+ },
+  render: function(){
+    return (
+      <div className="outer">
+        <div className="curve">
+       
+      <button type="button" onClick = {this.Tscreate}>Add</button>
+      
+      </div>
+      </div>
+    );
+  }
+});
 
-    		return (
-		    tsc()	
-    		)
-  	}
+React.renderComponent(<tsc/>, document.body);
 );
