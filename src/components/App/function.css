@@ -1,29 +1,42 @@
 
 .outer {
-  display:inline-block;
-  width: 1000px;
-  color: white;
-  height:500px;
-  border:1px solid black;
-  position:relative;
-  }
+display:inline-block;
+width: 1000px;
+color: white;
+height:500px;
+border:1px solid black;
+position:relative;
+}
 .curve{
-  border:1px solid black;
-  height: 450px;
-  width:200px;
-  position:absolute;
-  display:inline-block;
-  
-  button {
-    background:green
-  }
-  
+border:1px solid black;
+height: 450px;
+width:250px;
+position:absolute;
+display:inline-block;
+}
+.text{
+border:1px solid black;
+height: 450px;
+width:250px;
+position:relative;
+left:250px;
+display:inline-block;
+}
+.tree{
+border:1px solid black;
+height: 450px;
+width:250px;
+position:relative;
+left:250px;
+display:inline-block;
 }
 .block{
-  border:1px solid black;
-  height: 450px;
-  width:300px;
-  margin:auto;
-  z-index:-1;
-  display:inline-block;
+border:1px solid black;
+height: 450px;
+width:250px;
+position:relative;
+left:250px;
+display:inline-block;
+z-index:-1
 }
+
