@@ -7,7 +7,7 @@ export default connect(
 		function App() {
 		const tsc = () => {	
 		return(
-			<div className="outer">
+			<div className="outer">	
 				<div className="curve">
 					<button type="button" >Curve</button>
 				</div>

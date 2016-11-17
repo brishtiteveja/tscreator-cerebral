@@ -1,44 +1,49 @@
 
 .outer {
 	display:  inline-block;
-	height:   500px;
-	width:    1000px;
-	color:    white;
-	border:   1px solid black;
-	position: relative;
-}
-.curve {
-	display:  inline-block;
-	height:   450px;
-	width:    250px;
+	height:   90%;
+	width:    95%;
 	color:    white;
 	border:   1px solid black;
 	position: absolute;
 }
-.text {
+.curve {
 	display:  inline-block;
-	height:   450px;
-	width:    250px;
+	height:   90%;
+	width:    23%;
 	color:    white;
 	border:   1px solid black;
 	position: relative;
-	left:     250px;
+	left:     2%;
+	top:      7%;
+}
+.text {
+	display:  inline-block;
+	height:   90%;
+	width:    23%;
+	color:    white;
+	border:   1px solid black;
+	position: relative;
+	left:     5%;
+	top:      7%;
 }
 .tree {
 	display:  inline-block;
-	height:   450px;
-	width:    250px;
+	height:   90%;
+	width:    23%;
 	color:    white;
 	border:   1px solid black;
 	position: relative;
-	left:     250px;
+	left:     4%;
+	top:      7%;
 }
 .block {
 	display:  inline-block;
-	height:   450px;
-	width:    250px;
+	height:   90%;
+	width:    23%;
 	color:    white;
 	border:   1px solid black;
 	position: relative;
-	left:     250px;
+	left:     3%;
+	top:      7%;
 }
