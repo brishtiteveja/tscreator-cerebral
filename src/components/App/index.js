@@ -5,27 +5,31 @@ export default connect(
 		{},
 		{},
 		function App() {
-		const tsc = () => {	
-		return(
-			<div className="outer">	
-				<div className="curve">
-					<button type="button" >Curve</button>
-				</div>
-				<div className = "block">
-					<button type="button" >Block</button>
-				</div>
-				<div className = "tree">
-					<button type="button" >Tree</button>
-				</div>
-				<div className = "text">
-					<button type="button" >Text</button>
-				</div>
-			</div>
-		      )
-		}
+			function addColumn() {
+				return (
+					<div className="column">
+					</div>
+				)
+			}
+			const tsc = () => {	
+				return(
+					<div className="outer">	
+						<div className="inner">
+							<div className="column">
+								<input type="button" value="Add Column" onClick=addColumn()>
+								</input>
+							</div>
+							<div className="column">
+							</div>
+							<div className="column">
+							</div>
+						</div>	
+					</div>
+		      		)
+			}
 
-		return (
-				tsc()	
-		       )
+			return (
+					tsc()	
+		       	)
 		}
 );
