@@ -4,6 +4,8 @@ import Devtools from 'cerebral-module-devtools'
 
 import updateItemTitle from './chains/updateItemTitle'
 import addNewItem from './chains/addNewItem'
+import addNewColumn from './chains/addNewColumn'
+import columnTypeClicked from './chains/columnTypeClicked'
 
 const controller = Controller(model)
 
@@ -26,11 +28,9 @@ controller.addSignals({
 		}
 	],
 
-	sriramNewColumnRequested: [
-		function({input, state, output, services}) {
-			window.open("https://google.com");
-		}
-	],
+	sriramNewColumnRequested: addNewColumn,
+
+	sriramColumnButtonClicked: columnTypeClicked
 })
 
 controller.addModules({
