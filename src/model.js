@@ -3,7 +3,7 @@ import Model from 'cerebral/models/immutable'
 const model = Model({
   items: [],
   newItemTitle: '',
-  inStateShape: 'circle',
+  displayMenu: false,
 })
 
 export default model
