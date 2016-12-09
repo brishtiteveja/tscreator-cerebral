@@ -8,5 +8,5 @@ export default [
 
   // We use an action factory from cerebral-addons
   // to empty the value of our input
-  set('state:displayMenu', 'false')
+  set('state:displayMenu', false)
 ]

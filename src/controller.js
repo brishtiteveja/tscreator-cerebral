@@ -3,9 +3,12 @@ import model from './model'
 import Devtools from 'cerebral-module-devtools'
 
 import updateItemTitle from './chains/updateItemTitle'
-import addNewItem from './chains/addNewItem'
 import addNewColumn from './chains/addNewColumn'
 import columnTypeClicked from './chains/columnTypeClicked'
+import curveColumn from './chains/curveColumn'
+import blockColumn from './chains/blockColumn'
+import treeColumn from './chains/treeColumn'
+import transColumn from './chains/transColumn'
 
 const controller = Controller(model)
 
@@ -15,7 +18,6 @@ controller.addSignals({
 		immediate: true
 	},
 
-	newItemTitleSubmitted: addNewItem,
 	
 	aaronControllerOnNewShapeRequested: [
 		function({input, state, output, services}) {
@@ -30,7 +32,15 @@ controller.addSignals({
 
 	sriramNewColumnRequested: addNewColumn,
 
-	sriramColumnButtonClicked: columnTypeClicked
+	sriramColumnButtonClicked: columnTypeClicked,
+
+	sriramCurveColumn: curveColumn,
+
+	sriramBlockColumn: blockColumn,
+
+	sriramTransColumn: transColumn,
+
+	sriramTreeColumn: treeColumn
 })
 
 controller.addModules({

@@ -5,21 +5,44 @@ export default connect({
 	display: 'displayMenu'
 },	
 	{
-		closeColumn: 'sriramColumnButtonClicked'	
+		closeColumn: 'sriramColumnButtonClicked',
+		curveColumn: 'sriramCurveColumn',
+		treeColumn:  'sriramTreeColumn',
+		blockColumn: 'sriramBlockColumn',
+		transColumn: 'sriramTransColumn'	
 	},
 
 	function ColChooser(props) {
 
-		const ColumnTypeClicked = event => {
+		const CurveTypeClicked = event => {
+			props.curveColumn();
+			props.closeColumn();
+		}
+
+		const BlockTypeClicked = event => {
+			props.blockColumn();
+			props.closeColumn();
+		}
+
+		const TreeTypeClicked = event => {
+			props.treeColumn();
+			props.closeColumn();
+		}
+
+		const TransectTypeClicked = event => {
+			props.transColumn();
 			props.closeColumn();
 		}
 
 		if(props.display) {
 			return(
-				<div className="outer">
-					<div className="inner">
-						<button type = "button" onClick = {ColumnTypeClicked}>Curve</button>
-						<button type = "button">Tree</button>
+				<div className="chooser">
+					Choose Column Type:
+					<div className="innerchooser">
+						<button type = "button" onClick = {CurveTypeClicked}>Curve</button>
+						<button type = "button" onClick = {TreeTypeClicked}>Tree</button>
+						<button type = "button" onClick = {BlockTypeClicked}>Block</button>
+						<button type = "button" onClick = {TransectTypeClicked}>Transect</button>
 					</div>	
 	      			</div>
 			)
