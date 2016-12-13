@@ -3,6 +3,7 @@
 // the "items" array
 function addBlock ({state}) {
   state.push('items', 'block')
+	state.push('contents', '');
 }
 
 export default addBlock

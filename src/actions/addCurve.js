@@ -3,6 +3,7 @@
 // the "items" array
 function addCurve ({state}) {
   state.push('items', 'curve')
+	state.push('contents', '')
 }
 
 export default addCurve

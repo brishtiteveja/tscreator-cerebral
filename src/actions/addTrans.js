@@ -3,6 +3,7 @@
 // the "items" array
 function addTrans ({state}) {
   state.push('items', 'trans')
+  state.push('contents', '')
 }
 
 export default addTrans

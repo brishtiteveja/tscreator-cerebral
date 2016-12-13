@@ -4,7 +4,7 @@ const model = Model({
   	items: [],
   	newItemTitle: '',
   	displayMenu: false,
-	contents: ["Using ", "the \n", "cerebral ", "environment ", "I ", "got a sort of download ", "to work!"],
+	contents: [],
 })
 
 export default model

@@ -3,6 +3,7 @@
 // the "items" array
 function addTree ({state}) {
   state.push('items', 'tree')
+	state.push('contents', '')
 }
 
 export default addTree

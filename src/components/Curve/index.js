@@ -1,15 +1,24 @@
 import React from 'react'
-import Dropzone from 'react-dropzone'
+import Text from '../Text'
 import {connect} from 'cerebral-view-react'
 import style from'../function.css'
 export default connect(
 	{},	
-	{},
+	{
+		uploadContents: 'sriramFileDropped',
+	},
 
-	function Curve() {
+	function Curve(props) {
 		const onDropFile = (acceptedFiles) => {
+			var reader = new FileReader();
+
+			reader.onload = function(event) {
+				var contents = event.target.result;
+				props.uploadContents({"ID": props.columnId, "con": contents});
+			}
+
 			for(var i = 0; i < acceptedFiles.length; i++) {
-				console.log(acceptedFiles[i].name);
+				reader.readAsText(acceptedFiles[i]);
 			}
 		}
 		const openCurve = event => {
@@ -17,11 +26,7 @@ export default connect(
 		}
 		return(
 			<div className="column" onClick = {openCurve}>
-				<Dropzone
-					disableClick = {true}
-					accept = "text/plain"
-					onDrop = {onDropFile}>
-				</Dropzone>
+				<Text columnId = {props.columnId} />
 			</div>
 		)
 	}
