@@ -9,17 +9,23 @@ export default connect({
 		
 },	{
 		addColumnClicked: 'sriramNewColumnRequested',
+		exportClicked: 'sriramExportClicked',
 	},
 
 	function App(props) {
+
+		const checkDownload = event => {
+			props.exportClicked();
+		}
 
 		const addColumnButton = event => {
 			props.addColumnClicked();
 		}
 		return(
 			<div className="outer">
-				<button type = "button" onClick={addColumnButton}>Add Column</button>
-				<ColumnList/>	
+				<button type = "button" onClick = {addColumnButton}>Add Column</button>
+				<button type = "button" onClick = {checkDownload}>Export</button>
+				<ColumnList/>
 				<ColChooser/>
 	      		</div>
 		)

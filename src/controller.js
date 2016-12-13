@@ -9,6 +9,7 @@ import curveColumn from './chains/curveColumn'
 import blockColumn from './chains/blockColumn'
 import treeColumn from './chains/treeColumn'
 import transColumn from './chains/transColumn'
+import downloadFile from './chains/downloadFile'
 
 const controller = Controller(model)
 
@@ -40,7 +41,9 @@ controller.addSignals({
 
 	sriramTransColumn: transColumn,
 
-	sriramTreeColumn: treeColumn
+	sriramTreeColumn: treeColumn,
+
+	sriramExportClicked: downloadFile,
 })
 
 controller.addModules({

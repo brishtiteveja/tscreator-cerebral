@@ -10,7 +10,7 @@ export default connect(
 			window.open("http://afternoon-sands-3534.herokuapp.com/transect_maker/html/transect_min.html");
 		}
 		return(
-			<div className="column" onClick = {openTransect}></div>
+			<div className="column" onClick = {openTransect}>Transect</div>
 		)
 	}
 );

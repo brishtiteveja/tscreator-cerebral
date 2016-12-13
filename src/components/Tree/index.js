@@ -10,7 +10,7 @@ export default connect(
 			window.open("http://afternoon-sands-3534.herokuapp.com/evtree_maker/html/index.html");
 		}
 		return(
-			<div className="column" onClick = {openTree}></div>
+			<div className="column" onClick = {openTree}>Tree</div>
 		)
 	}
 );
