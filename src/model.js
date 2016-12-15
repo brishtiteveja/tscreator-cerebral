@@ -5,6 +5,7 @@ const model = Model({
   	newItemTitle: '',
   	displayMenu: false,
 	contents: [],
+	fileLink: '',
 })
 
 export default model

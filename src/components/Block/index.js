@@ -26,6 +26,7 @@ export default connect(
 		}
 		return(
 			<div className="column" onClick = {openBlock}>
+				Block
 				<Text columnId = {props.columnId} />
 			</div>
 		)

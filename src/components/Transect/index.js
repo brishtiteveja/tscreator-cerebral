@@ -26,6 +26,7 @@ export default connect(
 		}
 		return(
 			<div className="column" onClick = {openTransect}>
+				Transect
 				<Text columnId = {props.columnId} />
 			</div>
 		)

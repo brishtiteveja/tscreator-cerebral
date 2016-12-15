@@ -5,7 +5,8 @@ import ColChooser from '../ColChooser'
 import ColumnList from '../ColumnList'
 export default connect({
 		items: 'items',
-		display: 'displayMenu'
+		display: 'displayMenu',
+		contents: 'contents'
 		
 },	{
 		addColumnClicked: 'sriramNewColumnRequested',
@@ -15,7 +16,13 @@ export default connect({
 	function App(props) {
 
 		const checkDownload = event => {
-			props.exportClicked();
+			var link = document.getElementById("exportLink");
+			var text = '';
+			for(var i = 0; i < props.contents.length; i++) {
+				text += encodeURIComponent(props.contents[i]);
+			}
+			console.log(props.contents.length);
+			link.href = 'data:text/plain;charset=utf-8,' + text;
 		}
 
 		const addColumnButton = event => {
@@ -24,7 +31,7 @@ export default connect({
 		return(
 			<div className="outer">
 				<button type = "button" onClick = {addColumnButton}>Add Column</button>
-				<button type = "button" onClick = {checkDownload}>Export</button>
+				<a id = "exportLink" href="" onClick = {checkDownload} download = "datapack.txt">Export</a>
 				<ColumnList/>
 				<ColChooser/>
 	      		</div>
