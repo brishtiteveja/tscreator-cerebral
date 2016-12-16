@@ -15,14 +15,12 @@ export default connect({
 
 	function App(props) {
 
-		const checkDownload = event => {
-			var link = document.getElementById("exportLink");
+		const checkDownload = () => {
 			var text = '';
 			for(var i = 0; i < props.contents.length; i++) {
 				text += encodeURIComponent(props.contents[i]);
 			}
-			console.log(props.contents.length);
-			link.href = 'data:text/plain;charset=utf-8,' + text;
+			return ('data:text/plain;charset=utf-8,' + text);
 		}
 
 		const addColumnButton = event => {
@@ -31,7 +29,7 @@ export default connect({
 		return(
 			<div className="outer">
 				<button type = "button" onClick = {addColumnButton}>Add Column</button>
-				<a id = "exportLink" href="" onClick = {checkDownload} download = "datapack.txt">Export</a>
+				<a id = "exportLink" href= {checkDownload()} download = "datapack.txt">Export</a>
 				<ColumnList/>
 				<ColChooser/>
 	      		</div>
