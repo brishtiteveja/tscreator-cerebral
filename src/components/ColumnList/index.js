@@ -1,10 +1,7 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
 import style from'../function.css'
-import Curve from '../Curve'
-import Tree from '../Tree'
-import Transect from '../Transect'
-import Block from '../Block'
+import Column from '../Column'
 
 export default connect({
 	items: 'items'
@@ -13,14 +10,14 @@ export default connect({
 
 	function ColumnList(props) {
 		var collectionColumns = props.items.map((item, index) => { 
-				if(item == "curve") {
-					return <Curve key = {index} columnId = {index}/>;
-				} else if (item == "tree") {
-					return <Tree key = {index} columnId = {index}/>;
-				} else if (item == "block") {
-					return <Block key = {index} columnId = {index}/>;
-				} else if (item == "trans") {
-					return <Transect key = {index} columnId = {index}/>;
+				if(item == "Curve") {
+					return <Column key = {index} columnId = {index} type = "Curve"/>;
+				} else if (item == "Tree") {
+					return <Column key = {index} columnId = {index} type = "Tree"/>;
+				} else if (item == "Block") {
+					return <Column key = {index} columnId = {index} type = "Block"/>;
+				} else if (item == "Transect") {
+					return <Column key = {index} columnId = {index} type = "Transect"/>;
 				} else {
 					return <div className = "column" key = {index} columnId = {index}></div>;
 				}

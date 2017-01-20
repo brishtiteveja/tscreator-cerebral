@@ -2,7 +2,7 @@
 // from the state store and putting it at the top of
 // the "items" array
 function addCurve ({state}) {
-  state.push('items', 'curve')
+  state.push('items', 'Curve')
 	state.push('contents', '')
 }
 

@@ -2,7 +2,7 @@
 // from the state store and putting it at the top of
 // the "items" array
 function addTree ({state}) {
-  state.push('items', 'tree')
+  state.push('items', 'Tree')
 	state.push('contents', '')
 }
 
