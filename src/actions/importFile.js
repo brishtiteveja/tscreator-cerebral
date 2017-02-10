@@ -4,14 +4,27 @@
 function importFile ({input, state}) {
   	var ID = input.ID;
 	var text = input.con;
-	var temp = state.get('contents');
-	for(var i = 0; i < temp.length - ID - 1; i++) {
-		state.pop('contents');	
-	}
-	state.pop('contents');
-	state.push('contents', text);
-	for(var j = ID + 1; j < temp.length; j++) {
-		state.push('contents', temp[j]);
+	var imageDrop = state.get('imageDropEnable');
+	if(!imageDrop) {
+		var temp = state.get('contents');
+		for(var i = 0; i < temp.length - ID - 1; i++) {
+			state.pop('contents');	
+		}
+		state.pop('contents');
+		state.push('contents', text);
+		for(var j = ID + 1; j < temp.length; j++) {
+			state.push('contents', temp[j]);
+		}
+	} else {
+		console.log("You made it!");
+		/*var temp = state.get('imags');
+		for(var i = 0; i < temp.length - ID - 1; i++) {
+			state.pop('imags');	
+		}
+		state.pop('contents');
+		state.push('contents', text);
+		for(var j = ID + 1; j < temp.length; j++) {
+			state.push('contents', temp[j]);*/
 	}
 }
 
