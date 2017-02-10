@@ -11,26 +11,13 @@ import treeColumn from './chains/treeColumn'
 import transColumn from './chains/transColumn'
 import downloadFile from './chains/downloadFile'
 import dropFile from './chains/dropFile'
+import showImage from './chains/showImage'
+import previewClicked from './chains/pClicked'
+import backClicked from './chains/backClicked'
 
 const controller = Controller(model)
 
 controller.addSignals({
-	newItemTitleChanged: {
-		chain: updateItemTitle,
-		immediate: true
-	},
-
-	
-	aaronControllerOnNewShapeRequested: [
-		function({input, state, output, services}) {
-			var cur_shape = state.get('inStateShape');
-			if (cur_shape === 'circle') {
-				state.set('inStateShape', 'square');
-			} else {
-				state.set('inStateShape', 'circle');
-			}
-		}
-	],
 
 	sriramNewColumnRequested: addNewColumn,
 
@@ -47,6 +34,12 @@ controller.addSignals({
 	sriramExportClicked: downloadFile,
 
 	sriramFileDropped: dropFile,
+	
+	sriramImageClicked: showImage,
+	
+	sriramPreviewClicked: previewClicked,
+	
+	sriramBackClicked: backClicked,
 })
 
 controller.addModules({

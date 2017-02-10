@@ -5,6 +5,12 @@ const model = Model({
   	displayMenu: false,
 	contents: [],
 	textFile: '',
+	initialDisplay: true,
+	preview: false,
+	titles: ["Just", "Testing", "Image", "", "Generator", "Thing"],
+	editList: ["Just", "", "Testing", "", "Image", "", "Generator", "", "Thing"],
+	whichImage: -1,
+	editImage: false,
 })
 
 export default model
