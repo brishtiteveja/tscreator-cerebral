@@ -85,7 +85,6 @@
 .image {
 	width: 30%;
 	height: 40%;
-	border: 1px solid black;
 }
 .dropImage {
 	width: 30%;
@@ -104,7 +103,6 @@
 .sideImage {
 	width: 90%;
 	height: 25%;
-	border: 1px solid black;
 }
 .toolbar {
 	flex: 1;
@@ -121,5 +119,14 @@
 .mainImage {
 	width: 90%;
 	height: 90%;
-	border: 1px solid black;
+}
+.actualImage {
+	max-width: 100%;
+	max-height: 90%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.imageTitle {
+	width: 100%;
 }

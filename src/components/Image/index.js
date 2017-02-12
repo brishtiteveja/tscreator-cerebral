@@ -3,6 +3,7 @@ import {connect} from 'cerebral-view-react'
 import style from'../function.css'
 export default connect(
 	{
+		imags: 'imags',
 	},	
 	{
 			imageChosen: 'sriramImageClicked',
@@ -13,7 +14,8 @@ export default connect(
 			props.imageChosen({"ID": props.imageId});
 		}
 		return(
-			<div className = "image" onClick = {imClick}>
+			<div className = "image">
+				<img className = "actualImage" onClick = {imClick} src = {props.imags[0]}/>
 				{props.title}
 			</div>
 		)

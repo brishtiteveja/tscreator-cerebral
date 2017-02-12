@@ -3,6 +3,7 @@ import {connect} from 'cerebral-view-react'
 import style from'../function.css'
 export default connect(
 	{
+		imags: 'imags',
 	},	
 	{
 	},
@@ -10,7 +11,10 @@ export default connect(
 	function ImageEdited(props) {
 		return(
 			<div className = "mainImage">
-				{props.title}
+				<img className = "actualImage" src = {props.imags[0]}/>
+				<div className = "imageTitle" contentEditable = "true">
+					{props.title}
+				</div>
 			</div>
 		)
 	}
