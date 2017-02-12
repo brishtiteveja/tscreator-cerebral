@@ -10,12 +10,10 @@ export default connect(
 
 	function ImageEdited(props) {
 		return(
-			<div className = "mainImage">
-				<img className = "actualImage" src = {props.imags[0]}/>
-				<div className = "imageTitle" contentEditable = "true">
-					{props.title}
-				</div>
-			</div>
+			<svg className = "mainImage">
+				<image className = "actualImage" xlinkHref = {props.imags[0]}/>
+				<line x1 = "0" y1 = "50" x2 = "900" y2 = "50" stroke = "red"/>
+			</svg>
 		)
 	}
 );

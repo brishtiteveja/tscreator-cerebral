@@ -4,16 +4,9 @@
 function showEditor ({input, state}) {
   	var ID = input.ID;
 	var editImage = state.get('editImage');
-	if(!editImage) {
-		var n = 1;
-		var p = 4;
-		while(p <= ID) {
-			n++;
-			p *= n;
-		}
-		ID = 2*(ID - (n - 1));
+	if(ID) {
+		state.set('whichImage', ID);
 	}
-	state.set('whichImage', ID);
 	state.set('editImage', true);
 	state.set('preview', false);
 	state.set('initialDisplay', false);

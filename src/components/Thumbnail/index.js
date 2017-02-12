@@ -10,20 +10,14 @@ export default connect(
 	{},
 
 	function Thumbnail(props) {
-		if(props.title == "") {
+		if(props.editImage) {
 			return(
-				<div className = "place"></div>
+				<ImageE imageId = {props.imageId} title = {props.title}/>
 			)
 		} else {
-			if(props.editImage) {
-				return(
-					<ImageE imageId = {props.imageId} title = {props.title}/>
-				)
-			} else {
-				return(
-					<Image imageId = {props.imageId} title = {props.title}/>
-				)
-			}
+			return(
+				<Image imageId = {props.imageId} title = {props.title}/>
+			)
 		}
 	}	
 );
