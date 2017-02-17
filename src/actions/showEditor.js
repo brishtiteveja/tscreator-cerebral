@@ -4,7 +4,7 @@
 function showEditor ({input, state}) {
   	var ID = input.ID;
 	var editImage = state.get('editImage');
-	if(ID) {
+	if(ID >= 0) {
 		state.set('whichImage', ID);
 	}
 	state.set('editImage', true);

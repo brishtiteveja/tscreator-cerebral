@@ -4,16 +4,16 @@ import style from'../function.css'
 export default connect(
 	{
 		imags: 'imags',
+		chosen: 'whichImage',
 	},	
 	{
 	},
 
 	function ImageEdited(props) {
 		return(
-			<svg className = "mainImage">
-				<image className = "actualImage" xlinkHref = {props.imags[0]}/>
-				<line x1 = "0" y1 = "50" x2 = "900" y2 = "50" stroke = "red"/>
-			</svg>
+			<div className = "mainImage">
+				<img className = "actualImage" src = {props.imags[props.chosen]}/>
+			</div>
 		)
 	}
 );

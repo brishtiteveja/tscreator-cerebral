@@ -16,15 +16,7 @@ function importFile ({input, state}) {
 			state.push('contents', temp[j]);
 		}
 	} else {
-		console.log("You made it!");
-		/*var temp = state.get('imags');
-		for(var i = 0; i < temp.length - ID - 1; i++) {
-			state.pop('imags');	
-		}
-		state.pop('contents');
-		state.push('contents', text);
-		for(var j = ID + 1; j < temp.length; j++) {
-			state.push('contents', temp[j]);*/
+		state.push('imags', text);
 	}
 }
 

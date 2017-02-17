@@ -49,18 +49,17 @@
 	display: flex;
 	flex-flow: column nowrap;
 	text-align: center;
-	overflow: auto;
 	height: 90%;
 	width: 95%;
 	color: black;
 	border: 3px solid black;
 	position: absolute;
+	overflow: auto;
 }
 .mainEditGallery {
 	display: flex;
 	flex-flow: row nowrap;
 	text-align: center;
-	overflow: auto;
 	height: 90%;
 	width: 95%;
 	color: black;
@@ -71,30 +70,29 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
-	overflow: auto;
+	align-content: space-around;
 	width: 100%;
 	height: 100%;
+	margin: auto;
 }
 .editGallery {
 	flex: 1;
 	display: flex;
 	flex-flow: row wrap;
-	overflow: auto;
-	justify-content: space-around;
+	align-content: flex-start;
 	border: 1px solid black;
+	overflow: auto;
 }
 .image {
 	width: 30%;
 	height: 40%;
+	max-width: 500px;
+	max-height: 350px;
 }
 .dropImage {
 	width: 30%;
 	height: 40%;
 	border: 1px dashed black;
-}
-.place {
-	width: 90%;
-	height: 5%;
 }
 .imageEditor {
 	display: flex;
@@ -104,6 +102,7 @@
 .sideImage {
 	width: 90%;
 	height: 25%;
+	margin: auto;
 }
 .toolbar {
 	flex: 1;

@@ -15,7 +15,7 @@ export default connect(
 		}
 		return(
 			<div className = "image">
-				<img className = "actualImage" onClick = {imClick} src = {props.imags[0]}/>
+				<img className = "actualImage" onClick = {imClick} src = {props.imags[props.imageId]}/>
 				{props.title}
 			</div>
 		)

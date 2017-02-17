@@ -2,7 +2,6 @@ import {Controller} from 'cerebral'
 import model from './model'
 import Devtools from 'cerebral-module-devtools'
 
-import updateItemTitle from './chains/updateItemTitle'
 import addNewColumn from './chains/addNewColumn'
 import columnTypeClicked from './chains/columnTypeClicked'
 import curveColumn from './chains/curveColumn'
@@ -14,6 +13,7 @@ import dropFile from './chains/dropFile'
 import showImage from './chains/showImage'
 import previewClicked from './chains/pClicked'
 import backClicked from './chains/backClicked'
+import updateTitle from './chains/updateTitle'
 
 const controller = Controller(model)
 
@@ -40,6 +40,8 @@ controller.addSignals({
 	sriramPreviewClicked: previewClicked,
 	
 	sriramBackClicked: backClicked,
+
+	sriramImageTitleAdded: updateTitle,
 })
 
 controller.addModules({

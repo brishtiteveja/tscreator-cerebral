@@ -4,13 +4,13 @@ import style from'../function.css'
 import Thumbnail from '../Thumbnail'
 
 export default connect({
-	edits: 'editList'
+	titles: 'titles'
 },	
 	{},
 
 	function EditList(props) {
-		var collectionThumbnails = props.edits.map((edit, index) => { 
-			return <Thumbnail key = {index} imageId = {index} title = {edit}/>;
+		var collectionThumbnails = props.titles.map((title, index) => { 
+			return <Thumbnail key = {index} imageId = {index} title = {title}/>;
 		})
 
 		return(
