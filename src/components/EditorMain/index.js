@@ -7,7 +7,8 @@ export default connect({
 		preview: 'preview',
 		editImage: 'editImage',
 		titles: 'titles',
-		whichImage: 'whichImage'
+		whichImage: 'whichImage',
+		imags: 'imags',
 },	{
 		previewTime: 'sriramPreviewClicked',
 		backButton: 'sriramBackClicked',
@@ -19,6 +20,9 @@ export default connect({
 		}
 		const backClicked = () => {
 			props.backButton();
+		}
+		const checkDownload = () => {
+			return (props.imags[props.whichImage]);
 		}
 		if(!props.preview && props.editImage) {
 			return(
@@ -32,7 +36,9 @@ export default connect({
 						<div className = "anvil">
 							<ImageEdited title = {props.titles[props.whichImage]}/>
 						</div>
-						<div className = "toolbar"></div>
+						<div className = "toolbar">
+							<a id = "exportLink" href= {checkDownload()} download = {props.titles[props.whichImage]}>Export Image</a>
+						</div>
 					</div>
 				</div>
 			)

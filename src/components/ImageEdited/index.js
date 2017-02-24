@@ -11,9 +11,9 @@ export default connect(
 
 	function ImageEdited(props) {
 		return(
-			<div className = "mainImage">
-				<img className = "actualImage" src = {props.imags[props.chosen]}/>
-			</div>
+			<svg className = "mainImage" viewBox = "0 0 1000 1000">
+				<image className = "actualImage" xlinkHref = {props.imags[props.chosen]}/>
+			</svg>
 		)
 	}
 );
