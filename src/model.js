@@ -12,6 +12,7 @@ const model = Model({
 	whichImage: -1,
 	editImage: false,
 	imageDropEnable: true, 
+	lines:[],
 })
 
 export default model

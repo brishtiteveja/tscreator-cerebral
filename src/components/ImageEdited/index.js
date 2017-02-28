@@ -5,8 +5,11 @@ export default connect(
 	{
 		imags: 'imags',
 		chosen: 'whichImage',
+		lines: 'lines',
+		whichImage: 'whichImage',
 	},	
 	{
+		updateLines: 'sriramLineClicked',
 	},
 
 	function ImageEdited(props) {
@@ -16,13 +19,22 @@ export default connect(
 		var width = myImage.width;
 
 		const insertTimeline = event => {
-			console.log(event.clientX);
+			var image = event.target;
+			var svg = image.getBoundingClientRect();
+			var position = event.clientY - svg.top;
+			props.updateLines({"coordinate": position});
 		}
-
+		
+		var lineStuff = props.lines.map((line, index) => { 
+			if(line.image == props.whichImage) {
+				return <line key = {index} x1 = "0" x2 = {width} y1 = {line.y} y2 = {line.y} stroke = "red" strokeWidth = "2"/>;
+			}
+		})
+		
 		return(
-			<svg className = "mainImage" viewBox = {"0 0 " + width + " " + height} height = {height} width = {width} onDoubleClick = {insertTimeline}>
-				<image className = "actualImage" xlinkHref = {props.imags[props.chosen]}/>
-				<line x1 = "0" x2 = {width} y1 = {5*height/8} y2 = {5*height/8} stroke = "red" strokeWidth = "2"/>
+			<svg className = "mainImage" viewBox = {"0 0 " + width + " " + height} height = {height} width = {width}>
+				<image className = "actualImage" xlinkHref = {props.imags[props.chosen]} onDoubleClick = {insertTimeline}/>
+				{lineStuff}
 			</svg>
 		)
 	}

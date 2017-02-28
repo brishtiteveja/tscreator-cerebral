@@ -14,6 +14,7 @@ import showImage from './chains/showImage'
 import previewClicked from './chains/pClicked'
 import backClicked from './chains/backClicked'
 import updateTitle from './chains/updateTitle'
+import updateLines from './chains/updateLines'
 
 const controller = Controller(model)
 
@@ -42,6 +43,8 @@ controller.addSignals({
 	sriramBackClicked: backClicked,
 
 	sriramImageTitleAdded: updateTitle,
+	
+	sriramLineClicked: updateLines,
 })
 
 controller.addModules({

@@ -79,9 +79,10 @@
 	flex: 1;
 	display: flex;
 	flex-flow: row wrap;
-	align-content: flex-start;
 	border: 1px solid black;
 	overflow: auto;
+	align-content: space-around;
+	justify-content: space-around;
 }
 .image {
 	width: 30%;
@@ -102,7 +103,6 @@
 .sideImage {
 	width: 90%;
 	height: 25%;
-	margin: auto;
 }
 .toolbar {
 	flex: 1;
