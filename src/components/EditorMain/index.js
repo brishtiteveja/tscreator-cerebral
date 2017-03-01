@@ -9,6 +9,7 @@ export default connect({
 		titles: 'titles',
 		whichImage: 'whichImage',
 		imags: 'imags',
+		exportImage: 'currentExport',
 },	{
 		previewTime: 'sriramPreviewClicked',
 		backButton: 'sriramBackClicked',
@@ -22,7 +23,7 @@ export default connect({
 			props.backButton();
 		}
 		const checkDownload = () => {
-			return (props.imags[props.whichImage]);
+			return(props.exportImage);
 		}
 		if(!props.preview && props.editImage) {
 			return(

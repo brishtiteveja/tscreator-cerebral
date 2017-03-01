@@ -22,7 +22,11 @@ export default connect(
 			var image = event.target;
 			var svg = image.getBoundingClientRect();
 			var position = event.clientY - svg.top;
-			props.updateLines({"coordinate": position});
+			svg = document.getElementById("sriramEditImage");
+			var contents = '<?xml-stylesheet href = "../VIP/tscreator-cerebral/src/components/ImageEdited/function.css" type = "text/css"?>' + svg.outerHTML;
+			contents = '<?xml version = "1.0" standalone="yes"?>\r\n' + contents;
+			contents = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(contents);
+			props.updateLines({"coordinate": position, "exportImage": contents});
 		}
 		
 		var lineStuff = props.lines.map((line, index) => { 
@@ -32,7 +36,7 @@ export default connect(
 		})
 		
 		return(
-			<svg className = "mainImage" viewBox = {"0 0 " + width + " " + height} height = {height} width = {width}>
+			<svg className = "mainImage" viewBox = {"0 0 " + width + " " + height} height = {height} width = {width} id = "sriramEditImage">
 				<image className = "actualImage" xlinkHref = {props.imags[props.chosen]} onDoubleClick = {insertTimeline}/>
 				{lineStuff}
 			</svg>

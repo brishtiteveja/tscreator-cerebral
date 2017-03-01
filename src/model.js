@@ -13,6 +13,7 @@ const model = Model({
 	editImage: false,
 	imageDropEnable: true, 
 	lines:[],
+	currentExport: null,
 })
 
 export default model

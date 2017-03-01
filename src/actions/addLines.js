@@ -4,6 +4,7 @@
 function importFile ({input, state}) {
   	var y = input.coordinate;
 	state.push('lines', {"image": state.get("whichImage"), "y": y});
+	state.set('currentExport', input.exportImage);
 }
 
 export default importFile
