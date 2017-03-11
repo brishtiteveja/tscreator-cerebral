@@ -7,6 +7,7 @@ export default connect(
 		chosen: 'whichImage',
 		lines: 'lines',
 		whichImage: 'whichImage',
+		datapacks: 'datapacks',
 	},	
 	{
 		updateLines: 'sriramLineClicked',
@@ -21,12 +22,11 @@ export default connect(
 		const insertTimeline = event => {
 			var image = event.target;
 			var svg = image.getBoundingClientRect();
-			var position = event.clientY - svg.top;
-			svg = document.getElementById("sriramEditImage");
-			var contents = '<?xml-stylesheet href = "../VIP/tscreator-cerebral/src/components/ImageEdited/function.css" type = "text/css"?>' + svg.outerHTML;
-			contents = '<?xml version = "1.0" standalone="yes"?>\r\n' + contents;
-			contents = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(contents);
-			props.updateLines({"coordinate": position, "exportImage": contents});
+			var position = (event.clientY - svg.top) * height / svg.height;
+			props.updateLines({"coordinate": position});
+			var contents = JSON.stringify(props.datapacks[props.whichImage]);
+			var datauri = 'data:application/json;charset=utf-8,' + encodeURIComponent(datauri);
+			props.updateExport({"exportImage": datauri});
 		}
 		
 		var lineStuff = props.lines.map((line, index) => { 

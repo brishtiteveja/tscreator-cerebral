@@ -14,6 +14,7 @@ const model = Model({
 	imageDropEnable: true, 
 	lines:[],
 	currentExport: null,
+	datapacks: [],
 })
 
 export default model
