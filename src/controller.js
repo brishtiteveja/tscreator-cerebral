@@ -16,6 +16,8 @@ import backClicked from './chains/backClicked'
 import updateTitle from './chains/updateTitle'
 import updateLines from './chains/updateLines'
 import exportImage from './chains/exportImage'
+import hideList from './chains/hideList'
+
 const controller = Controller(model)
 
 controller.addSignals({
@@ -47,6 +49,8 @@ controller.addSignals({
 	sriramLineClicked: updateLines,
 
 	sriramExportImage: exportImage,
+
+	sriramHideList: hideList,
 })
 
 controller.addModules({

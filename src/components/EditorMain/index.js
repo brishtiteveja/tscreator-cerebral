@@ -10,9 +10,11 @@ export default connect({
 		whichImage: 'whichImage',
 		imags: 'imags',
 		exportImage: 'currentExport',
+		showList: 'hideEditList',
 },	{
 		previewTime: 'sriramPreviewClicked',
 		backButton: 'sriramBackClicked',
+		hideList: 'sriramHideList',
 },
 
 	function EditorMain(props) {
@@ -25,10 +27,14 @@ export default connect({
 		const checkDownload = () => {
 			return(props.exportImage);
 		}
+		const hideTheList = () => {
+			props.hideList();
+		}
 		if(!props.preview && props.editImage) {
 			return(
 				<div className="mainEditGallery">
 					<EditList/>
+					<button onClick = {hideTheList}></button>
 					<div className="imageEditor">
 						<div className = "toolbar">
 							<button onClick = {backClicked}>Back</button>
