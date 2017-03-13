@@ -11,6 +11,7 @@ export default connect(
 	},	
 	{
 		updateLines: 'sriramLineClicked',
+		updateExport: 'sriramExportImage',
 	},
 
 	function ImageEdited(props) {
@@ -18,15 +19,15 @@ export default connect(
 		myImage.src = props.imags[props.chosen];
 		var height = myImage.height;
 		var width = myImage.width;
+		var contents = JSON.stringify(props.datapacks[props.whichImage]);
+		var datauri = 'data:application/json;charset=utf-8,' + encodeURIComponent(contents);
+		props.updateExport({"exportImage": datauri});
 
 		const insertTimeline = event => {
 			var image = event.target;
 			var svg = image.getBoundingClientRect();
 			var position = (event.clientY - svg.top) * height / svg.height;
 			props.updateLines({"coordinate": position});
-			var contents = JSON.stringify(props.datapacks[props.whichImage]);
-			var datauri = 'data:application/json;charset=utf-8,' + encodeURIComponent(datauri);
-			props.updateExport({"exportImage": datauri});
 		}
 		
 		var lineStuff = props.lines.map((line, index) => { 
