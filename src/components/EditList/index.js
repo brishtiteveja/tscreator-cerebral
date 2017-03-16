@@ -4,7 +4,8 @@ import style from'../function.css'
 import Thumbnail from '../Thumbnail'
 
 export default connect({
-	titles: 'titles'
+	titles: 'titles',
+	hideList: 'hideEditList',
 },	
 	{},
 
@@ -13,8 +14,12 @@ export default connect({
 			return <Thumbnail key = {index} imageId = {index} title = {title}/>;
 		})
 
-		return(
-			<div className = "editGallery">{collectionThumbnails}</div>
-		)	
+		if(!props.hideList) {
+			return(
+				<div className = "editGallery">{collectionThumbnails}</div>
+			)
+		} else {
+			return(<div></div>)
+		}
 	}
 );
