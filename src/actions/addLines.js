@@ -6,7 +6,7 @@ function importFile ({input, state}) {
 	var index = state.get('whichImage');
 	state.push('lines', {"image": state.get("whichImage"), "y": y});
 	state.push('datapacks.' + index + '.timelines', {"y": y, "name": "Line" + y});
-	state.set('currentExport', datauri);
+	//state.set('currentExport', datauri);
 }
 
 export default importFile
