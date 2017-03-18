@@ -30,6 +30,9 @@ export default connect(
 		}
 		return(
 				<Dropzone
+					className = "mainGalleryDrop"
+					activeClassName = "mainGalleryDropActive"
+					rejectClassName = "mainGalleryDropReject"
 					disableClick = {true}
 					accept = "image/*"
 					multiple = {false}
