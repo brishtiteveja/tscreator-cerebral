@@ -8,6 +8,7 @@ export default connect(
 		lines: 'lines',
 		whichImage: 'whichImage',
 		datapacks: 'datapacks',
+		hideTime: 'hideTimeList',
 	},	
 	{
 		updateLines: 'sriramLineClicked',
@@ -24,10 +25,12 @@ export default connect(
 		props.updateExport({"exportImage": datauri});
 
 		const insertTimeline = event => {
-			var image = event.target;
-			var svg = image.getBoundingClientRect();
-			var position = (event.clientY - svg.top) * height / svg.height;
-			props.updateLines({"coordinate": position});
+			if(!props.hideTime) {
+				var image = event.target;
+				var svg = image.getBoundingClientRect();
+				var position = (event.clientY - svg.top) * height / svg.height;
+				props.updateLines({"coordinate": position});
+			}
 		}
 		
 		var lineStuff = props.lines.map((line, index) => { 

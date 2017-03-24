@@ -17,6 +17,9 @@ import updateTitle from './chains/updateTitle'
 import updateLines from './chains/updateLines'
 import exportImage from './chains/exportImage'
 import hideList from './chains/hideList'
+import hideTime from './chains/hideTime'
+import changeLineName from './chains/changeLineName'
+import changeLineAge from './chains/changeLineAge'
 
 const controller = Controller(model)
 
@@ -51,6 +54,12 @@ controller.addSignals({
 	sriramExportImage: exportImage,
 
 	sriramHideList: hideList,
+
+	sriramHideTime: hideTime,
+
+	sriramChangeLineName: changeLineName,
+
+	sriramChangeLineAge: changeLineAge,
 })
 
 controller.addModules({

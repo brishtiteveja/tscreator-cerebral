@@ -16,6 +16,7 @@ const model = Model({
 	currentExport: null,
 	datapacks: [],
 	hideEditList: true,
+	hideTimeList: true,
 })
 
 export default model
