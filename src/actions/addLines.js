@@ -19,18 +19,6 @@ function addLines ({input, state}) {
 	for(; i > 0; i--) {
 		state.push('datapacks.' + index + '.timelines', timelines[numLines - i]);
 	}
-	var zones = [];
-	numLines = state.get('datapacks.' + index + '.timelines').length;
-	for(i = 0; i < numLines; i++) {
-		var j = i + 1;
-		if(j < numLines) {
-			var timeline1 = state.get('datapacks.' + index + '.timelines.' + i);
-			var timeline2 = state.get('datapacks.' + index + '.timelines.' + j);
-			var zone = {"top": timeline1, "base": timeline2, "name": "Zone" + i, "description": null, "backgroundColor": "#FFFFFF"};
-			zones.push(zone);
-		}
-	}
-	state.set('datapacks.' + index + '.zones', zones);
 }
 
 export default addLines

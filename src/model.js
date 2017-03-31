@@ -17,6 +17,8 @@ const model = Model({
 	datapacks: [],
 	hideEditList: true,
 	hideTimeList: true,
+	svgTop: 0,
+	svgHeight: 0,
 })
 
 export default model

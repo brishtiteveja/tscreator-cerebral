@@ -1,4 +1,5 @@
 import React from 'react'
+import Line from '../Line'
 import {connect} from 'cerebral-view-react'
 import style from'../function.css'
 export default connect(
@@ -10,8 +11,9 @@ export default connect(
 	{
 		updateLines: 'sriramLineClicked',
 		updateExport: 'sriramExportImage',
+		updateOffsets: 'sriramUpdateOffsets',
 	},
-
+	
 	function ImageEdited(props) {
 		var myImage = new Image();
 		myImage.src = props.datapacks[props.whichImage].backgroundImage.dataURL;
@@ -26,12 +28,13 @@ export default connect(
 				var image = event.target;
 				var svg = image.getBoundingClientRect();
 				var position = (event.clientY - svg.top) * height / svg.height;
+				props.updateOffsets({"top": svg.top, "height": svg.height});
 				props.updateLines({"coordinate": position});
 			}
 		}
 		
 		var lineStuff = props.datapacks[props.whichImage].timelines.map((timeline, index) => { 
-			return <line key = {index} x1 = "0" x2 = {width} y1 = {timeline.y} y2 = {timeline.y} stroke = "red" strokeWidth = "2"/>;
+			return <Line key={index} id={index} width={width} y={timeline.y} height={height}/>;
 		})
 		
 		return(
