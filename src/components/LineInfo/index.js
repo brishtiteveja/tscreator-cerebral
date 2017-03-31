@@ -14,6 +14,7 @@ export default connect(
 		updateExport: 'sriramExportImage',
 		changeName: 'sriramChangeLineName',
 		changeAge: 'sriramChangeLineAge',
+		deleteLine: 'sriramDeleteLines',
 	},
 
 	function LineInfo(props) {
@@ -23,16 +24,19 @@ export default connect(
 		const onLineAgeChange = event => {
 			props.changeAge({"age": event.target.value, "id": props.id});
 		}
+		const deleteLine = event => {
+			props.deleteLine({"position": props.id});
+		}
 		return(
 			<div className="lineInfo">
 				<form>
-					Name: <input type="text" value={props.name} onChange={onLineNameChange}></input>
+					Name: <input type="text" value={props.name} onChange={onLineNameChange} size="4"></input>
 				</form>
 				<form>
 					Age: <input type="text" value={props.age.toString()} onChange={onLineAgeChange} size="1"></input>
 				</form>
 				<form>
-					<button>D</button>
+					<button onClick={deleteLine} type="button">D</button>
 				</form>
 			</div>
 		)

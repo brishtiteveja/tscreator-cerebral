@@ -178,3 +178,11 @@
 	background-color: black;
 	align-content: center;
 }
+.timeline:hover {
+	cursor: pointer;
+}
+.timelinedragging {
+	cursor: pointer;
+	cursor: grab;
+	cursor: grabbing;
+}

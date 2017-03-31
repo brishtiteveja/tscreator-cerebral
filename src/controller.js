@@ -20,6 +20,7 @@ import hideList from './chains/hideList'
 import hideTime from './chains/hideTime'
 import changeLineName from './chains/changeLineName'
 import changeLineAge from './chains/changeLineAge'
+import deleteLines from './chains/deleteLines'
 
 const controller = Controller(model)
 
@@ -60,6 +61,8 @@ controller.addSignals({
 	sriramChangeLineName: changeLineName,
 
 	sriramChangeLineAge: changeLineAge,
+
+	sriramDeleteLines: deleteLines,
 })
 
 controller.addModules({

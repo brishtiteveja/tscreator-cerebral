@@ -4,7 +4,6 @@
 function addLines ({input, state}) {
   	var y = input.coordinate;
 	var index = state.get('whichImage');
-	state.push('lines', {"image": state.get("whichImage"), "y": y});
 	var timelines = state.get('datapacks.' + index + '.timelines');
 	var numLines = timelines.length;
 	var i = 0;
