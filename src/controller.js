@@ -23,6 +23,7 @@ import changeLineAge from './chains/changeLineAge'
 import deleteLines from './chains/deleteLines'
 import dragLine from './chains/dragLine'
 import updateOffsets from './chains/updateOffsets'
+import hideRef from './chains/hideRef'
 
 const controller = Controller(model)
 
@@ -69,6 +70,8 @@ controller.addSignals({
 	sriramDragLine: dragLine,
 	
 	sriramUpdateOffsets: updateOffsets,
+
+	sriramHideRef: hideRef,
 })
 
 controller.addModules({
