@@ -19,7 +19,7 @@ const model = Model({
 	hideTimeList: true,
 	svgTop: 0,
 	svgHeight: 0,
-	setRef: false,
+	hideRef: false,
 })
 
 export default model

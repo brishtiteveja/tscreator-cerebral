@@ -16,6 +16,9 @@ function remLines ({input, state}) {
 	for(i = position + 1; i < numLines; i++) {
 		state.push('datapacks.' + index + '.timelines', timelines[i]);
 	}
+	if(numLines - 1 == 0) {
+		state.set('hideRef', false);
+	}
 }
 
 export default remLines

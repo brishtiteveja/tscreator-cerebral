@@ -75,7 +75,7 @@ controller.addSignals({
 })
 
 controller.addModules({
-	devtools: Devtools()
+	devtools: Devtools(),
 })
 
 export default controller

@@ -2,11 +2,13 @@ import React from 'react'
 import {connect} from 'cerebral-view-react'
 import style from'../function.css'
 import LineInfo from '../LineInfo'
+import references from './references'
 
 export default connect({
 	datapacks: 'datapacks',
 	hideTime: 'hideTimeList',
 	whichImage: 'whichImage',
+	setRef: 'hideRef',
 },	
 	{
 		hideRef: 'sriramHideRef',
@@ -19,12 +21,49 @@ export default connect({
 		const useReferences = () => {
 			props.hideRef();
 		}
-		if(!props.hideTime) {
+		const setReferences = () => {
+			console.log("Hi");
+		}
+		if(!props.hideTime && props.setRef) {
 			return(
 				<div className="timeGallery">
 					TIMELINES
-					<button onClick = {useReferences}>Add Reference Lines</button>
 					{collectionLines}
+				</div>
+			)
+		} else if(!props.hideTime && !props.setRef){
+			return(
+				<div className="timeGallery">
+					PRESETS
+					<div className="lineInfo"></div>
+					<div className="lineInfo">
+						<form>
+							Top: <input type="text" value="0" size="1"></input>
+						</form>
+						<form>
+							Base: <input type="text" value="15" size="1"></input>
+						</form>
+						<form>
+							Gap: <input type="text" value="50" size="1"></input>
+						</form>
+						<form>
+							Start: <input type="text" value="0" size="1"></input>
+						</form>
+					</div>
+					<div className="lineInfo"></div>
+					<div className="lineInfo"></div>
+					<form className="refInfo" onChange={setReferences}>
+						<div className="choiceInfo">
+							<input type="radio" name="refType" value="Period"></input>Period
+						</div>
+						<div className="choiceInfo">
+							<input type="radio" name="refType" value="Epoch"></input>Epoch
+						</div>
+						<div className="choiceInfo">
+							<input type="radio" name="refType" value="Stage"></input>Stages
+						</div>
+					</form>
+					<button type="button">Ready</button>
 				</div>
 			)
 		} else {

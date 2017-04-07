@@ -4,7 +4,6 @@ import style from '../function.css'
 import EditList from '../EditList'
 import ImageEdited from '../ImageEdited'
 import LineList from '../LineList'
-import ReferenceLines from '../ReferenceLines'
 
 export default connect({
 		preview: 'preview',
@@ -56,7 +55,6 @@ export default connect({
 						</div>
 					</div>
 					<LineList/>
-					<ReferenceLines/>
 				</div>
 			)
 		} else {

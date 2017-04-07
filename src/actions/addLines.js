@@ -19,6 +19,9 @@ function addLines ({input, state}) {
 	for(; i > 0; i--) {
 		state.push('datapacks.' + index + '.timelines', timelines[numLines - i]);
 	}
+	if(!state.get('hideTime')) {
+		state.set('hideRef', true);
+	}
 }
 
 export default addLines
