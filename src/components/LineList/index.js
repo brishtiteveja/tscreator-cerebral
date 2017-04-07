@@ -9,6 +9,7 @@ export default connect({
 	hideTime: 'hideTimeList',
 	whichImage: 'whichImage',
 	setRef: 'hideRef',
+	refOption: 'refOption',
 },	
 	{
 		hideRef: 'sriramHideRef',
@@ -43,27 +44,30 @@ export default connect({
 						<form>
 							Base: <input type="text" value="15" size="1"></input>
 						</form>
-						<form>
-							Gap: <input type="text" value="50" size="1"></input>
-						</form>
-						<form>
-							Start: <input type="text" value="0" size="1"></input>
-						</form>
 					</div>
 					<div className="lineInfo"></div>
 					<div className="lineInfo"></div>
 					<form className="refInfo" onChange={setReferences}>
-						<div className="choiceInfo">
-							<input type="radio" name="refType" value="Period"></input>Period
-						</div>
-						<div className="choiceInfo">
-							<input type="radio" name="refType" value="Epoch"></input>Epoch
-						</div>
-						<div className="choiceInfo">
-							<input type="radio" name="refType" value="Stage"></input>Stages
-						</div>
+						<label className="choiceInfo">
+							<input 
+								type="radio" 
+								name="refType" 
+								value="Period" 
+								checked={props.refOption=="Period"}>
+							</input>
+							Period
+						</label>
+						<label className="choiceInfo">
+							<input type="radio" name="refType" value="Epoch" checked={props.refOption=="Epoch"}></input>Epoch
+						</label>
+						<label className="choiceInfo">
+							<input type="radio" name="refType" value="Stage" checked={props.refOption=="Stage"}></input>Stage
+						</label>
+						<label className="choiceInfo">
+							<input type="radio" name="refType" value="None" checked={props.refOption=="None"}></input>None
+						</label>
+						<button type="submit">Looks Good!</button>
 					</form>
-					<button type="button">Ready</button>
 				</div>
 			)
 		} else {

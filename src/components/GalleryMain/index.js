@@ -11,7 +11,7 @@ export default connect({
 		if(!props.preview && !props.editImage) {
 			return(
 				<div className="mainImageGallery">
-					TSCreator
+					TSCreator Datapack Maker
 					<Gallery/>
 				</div>
 			)
