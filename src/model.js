@@ -20,6 +20,7 @@ const model = Model({
 	svgTop: 0,
 	svgHeight: 0,
 	hideRef: false,
+	refOption: "None",
 })
 
 export default model
