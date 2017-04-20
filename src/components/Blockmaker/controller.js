@@ -3,20 +3,20 @@ import Model from 'cerebral/models/immutable'
 import Devtools from 'cerebral-module-devtools'
 import ModulesProvider from 'cerebral-provider-modules'
 
-import BlockMakerModule from './modules/block-maker'
-import AppModule from './modules/app'
+import BlockMakerModule from '../modules/block-maker'
 
 const controller = Controller(Model({}));
 
+controller.addModules({ 
 
-controller.addModules({
-	
-	app: AppModule,
-	blockmaker: BlockMakerModule,
-	
-	devtools: Devtools(),
+  // Mine:
+  blockmaker: BlockMakerModule,
+
+  // Cerebral's:
+  devtools: Devtools(),
+
 });
 
 controller.addContextProvider(ModulesProvider);
 
-export default controller
+export default controller;

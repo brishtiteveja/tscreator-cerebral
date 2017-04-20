@@ -1,0 +1,9 @@
+.boundary:hover {
+  cursor: pointer;
+}
+
+.boundarydragging {
+  cursor: pointer;
+  cursor: grab;
+  cursor: grabbing;
+}

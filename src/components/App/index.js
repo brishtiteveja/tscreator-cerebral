@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import Preview from '../Preview'
-import GalleryMain from '../GalleryMain'
-import EditorMain from '../EditorMain'
+import Preview from './Preview'
+import GalleryMain from './GalleryMain'
+import EditorMain from './EditorMain'
+import Blockmaker from '../Blockmaker'
 export default connect({},	{},
 
 	function App(props) {
@@ -12,6 +13,7 @@ export default connect({},	{},
 				<Preview/>
 				<GalleryMain/>
 				<EditorMain/>
+				<Blockmaker/>
 			</div>
 		)
 	}

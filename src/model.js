@@ -1,26 +1,5 @@
 import Model from 'cerebral/models/immutable'
 
-const model = Model({
-  	items: [],
-  	displayMenu: false,
-	contents: [],
-	textFile: '',
-	initialDisplay: true,
-	preview: false,
-	titles: [],
-	imags: [],
-	whichImage: -1,
-	editImage: false,
-	imageDropEnable: true, 
-	lines:[],
-	currentExport: null,
-	datapacks: [],
-	hideEditList: true,
-	hideTimeList: true,
-	svgTop: 0,
-	svgHeight: 0,
-	hideRef: false,
-	refOption: "None",
-})
+const model = Model({})
 
 export default model
