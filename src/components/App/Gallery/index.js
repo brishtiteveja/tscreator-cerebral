@@ -28,6 +28,10 @@ export default connect(
 				props.uploadImageTitle({"title": file.name.split(".")[0]});
 			});
 		}
+		var text = "";
+		if(!props.imags.length) {
+			text = "Drag Images Here";	
+		}
 		return(
 				<Dropzone
 					className = "mainGalleryDrop"
@@ -37,6 +41,7 @@ export default connect(
 					accept = "image/*"
 					multiple = {false}
 					onDrop = {onDropFile}>
+					{text}
 					<TNList/>
 				</Dropzone>
 		)

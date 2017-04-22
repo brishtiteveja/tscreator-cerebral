@@ -21,6 +21,7 @@ import dragLine from './chains/dragLine'
 import updateOffsets from './chains/updateOffsets'
 import hideRef from './chains/hideRef'
 import showApp from './chains/showApp'
+import changeOption from './chains/changeOption'
 
 export default module => {
 
@@ -72,5 +73,6 @@ export default module => {
 		sriramUpdateOffsets: updateOffsets,
 		sriramHideRef: hideRef,
 		sriramShowApp: showApp,
+		sriramChangeOption: changeOption,
 	});
 };

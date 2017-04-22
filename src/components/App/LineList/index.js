@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'cerebral-view-react'
 import style from'../function.css'
 import LineInfo from '../LineInfo'
-import references from './references'
 
 export default connect({
 	datapacks: 'app.datapacks',
@@ -13,6 +12,7 @@ export default connect({
 },	
 	{
 		hideRef: 'app.sriramHideRef',
+		changeOption: 'app.sriramChangeOption',
 	},
 
 	function EditList(props) {
@@ -22,8 +22,8 @@ export default connect({
 		const useReferences = () => {
 			props.hideRef();
 		}
-		const setReferences = () => {
-			console.log("Hi");
+		const optionChanged = event => {
+			props.changeOption({"opt": event.target.value});
 		}
 		if(!props.hideTime && props.setRef) {
 			return(
@@ -47,24 +47,22 @@ export default connect({
 					</div>
 					<div className="lineInfo"></div>
 					<div className="lineInfo"></div>
-					<form className="refInfo" onChange={setReferences}>
+					<form className="refInfo">
 						<label className="choiceInfo">
-							<input 
-								type="radio" 
-								name="refType" 
-								value="Period" 
-								checked={props.refOption=="Period"}>
-							</input>
+							<input type="radio" name="refType" value="Period" checked={props.refOption=="Period"} onChange={optionChanged}></input>
 							Period
 						</label>
 						<label className="choiceInfo">
-							<input type="radio" name="refType" value="Epoch" checked={props.refOption=="Epoch"}></input>Epoch
+							<input type="radio" name="refType" value="Epoch" checked={props.refOption=="Epoch"} onChange={optionChanged}></input>
+							Epoch
 						</label>
 						<label className="choiceInfo">
-							<input type="radio" name="refType" value="Stage" checked={props.refOption=="Stage"}></input>Stage
+							<input type="radio" name="refType" value="Stage" checked={props.refOption=="Stage"} onChange={optionChanged}></input>
+							Stage
 						</label>
 						<label className="choiceInfo">
-							<input type="radio" name="refType" value="None" checked={props.refOption=="None"}></input>None
+							<input type="radio" name="refType" value="None" checked={props.refOption=="None"} onChange={optionChanged}></input>
+							None
 						</label>
 						<button type="submit">Looks Good!</button>
 					</form>

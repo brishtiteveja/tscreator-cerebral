@@ -2,11 +2,14 @@ import React from 'react'
 import Line from '../Line'
 import {connect} from 'cerebral-view-react'
 import style from'../function.css'
+import references from './references'
+
 export default connect(
 	{
 		whichImage: 'app.whichImage',
 		datapacks: 'app.datapacks',
 		hideTime: 'app.hideTimeList',
+		refOption: 'app.refOption',
 	},	
 	{
 		updateLines: 'app.sriramLineClicked',
@@ -31,6 +34,21 @@ export default connect(
 				props.updateOffsets({"top": svg.top, "height": svg.height});
 				props.updateLines({"coordinate": position});
 			}
+		}
+		
+		if(props.refOption != "None") {
+			var targ = references;
+			console.log(targ.Age);
+			if(props.refOption == "Period") {
+				targ = references.Period;
+			}
+			if(props.refOption == "Epoch") {
+				targ = references.Epoch;
+			}
+			if(props.refOption == "Stage") {
+				targ = references.Stage;
+			}
+			console.log(targ);
 		}
 		
 		var lineStuff = props.datapacks[props.whichImage].timelines.map((timeline, index) => { 
