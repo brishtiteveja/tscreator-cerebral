@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from '../function.css'
+import './GalleryMain.css'
 import Gallery from '../Gallery'
+
 export default connect({
 		preview: 'app.preview',
 		editImage: 'app.editImage',

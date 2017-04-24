@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './LineInfo.css'
+
 export default connect(
 	{
 		imags: 'app.imags',

@@ -1,7 +1,8 @@
 import React from 'react'
 import Draggable from 'react-draggable'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './Line.css'
+
 export default connect(
 	{
 		whichImage: 'app.whichImage',

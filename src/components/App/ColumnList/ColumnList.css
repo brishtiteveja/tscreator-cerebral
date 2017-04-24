@@ -1,0 +1,11 @@
+
+.inner {
+	display:         flex;
+	height:          90%;
+	width:           94%;
+	justify-content: center;
+	flex-flow:       row nowrap;
+	position:        relative;
+	left:            3%;
+	top:             5%;
+}

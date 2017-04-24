@@ -1,0 +1,22 @@
+
+.chooser {
+	display:  inline-block;
+	height:   200px;
+	width:    400px;
+	position: absolute;
+	left:     35%;
+	top:      35%;
+	border:   1px solid black;
+	background-color: black;
+	color: white;
+}
+.innerchooser {
+	display:         flex;
+	height:          70%;
+	width:           94%;
+	justify-content: center;
+	flex-flow:       row nowrap;
+	position:        relative;
+	left:            3%;
+	top:             15%;
+}

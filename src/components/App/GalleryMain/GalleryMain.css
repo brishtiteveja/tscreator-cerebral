@@ -1,0 +1,12 @@
+
+.mainImageGallery {
+	display: flex;
+	flex-flow: column nowrap;
+	text-align: center;
+	height: 90%;
+	width: 95%;
+	color: black;
+	border: 3px solid black;
+	position: absolute;
+	overflow: auto;
+}

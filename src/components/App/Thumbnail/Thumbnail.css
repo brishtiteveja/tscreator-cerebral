@@ -1,0 +1,8 @@
+
+.outer {
+	height:   90%;
+	width:    95%;
+	color:    black;
+	border:   1px solid black;
+	position: absolute;
+}

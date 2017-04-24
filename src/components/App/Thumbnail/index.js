@@ -2,7 +2,8 @@ import React from 'react'
 import Image from '../Image'
 import ImageE from '../ImageE'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './Thumbnail.css'
+
 export default connect(
 	{
 		editImage: 'app.editImage'

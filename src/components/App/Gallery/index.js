@@ -1,8 +1,9 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './Gallery.css'
 import TNList from '../TNList'
+
 export default connect(
 	{
 		imags: 'app.imags',
@@ -28,22 +29,33 @@ export default connect(
 				props.uploadImageTitle({"title": file.name.split(".")[0]});
 			});
 		}
-		var text = "";
 		if(!props.imags.length) {
-			text = "Drag Images Here";	
+			return(
+					<Dropzone
+						className = "mainGalleryDrop2"
+						activeClassName = "mainGalleryDropActive2"
+						rejectClassName = "mainGalleryDropReject2"
+						disableClick = {true}
+						accept = "image/*"
+						multiple = {false}
+						onDrop = {onDropFile}>
+						<TNList/>
+					</Dropzone>
+			)
 		}
-		return(
-				<Dropzone
-					className = "mainGalleryDrop"
-					activeClassName = "mainGalleryDropActive"
-					rejectClassName = "mainGalleryDropReject"
-					disableClick = {true}
-					accept = "image/*"
-					multiple = {false}
-					onDrop = {onDropFile}>
-					{text}
-					<TNList/>
-				</Dropzone>
-		)
+		else {
+			return(
+					<Dropzone
+						className = "mainGalleryDrop"
+						activeClassName = "mainGalleryDropActive"
+						rejectClassName = "mainGalleryDropReject"
+						disableClick = {true}
+						accept = "image/*"
+						multiple = {false}
+						onDrop = {onDropFile}>
+						<TNList/>
+					</Dropzone>
+			)
+		}
 	}
 );

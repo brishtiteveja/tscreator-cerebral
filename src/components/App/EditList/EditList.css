@@ -1,0 +1,10 @@
+
+.editGallery {
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	border: 1px solid black;
+	overflow: auto;
+	align-content: space-around;
+	justify-content: space-around;
+}

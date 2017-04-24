@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './Preview.css'
 import ColChooser from '../ColChooser'
 import ColumnList from '../ColumnList'
+
 export default connect({
 		contents: 'app.contents',
 		preview: 'app.preview',

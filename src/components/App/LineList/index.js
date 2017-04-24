@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './LineList.css'
 import LineInfo from '../LineInfo'
 
 export default connect({
@@ -15,7 +15,7 @@ export default connect({
 		changeOption: 'app.sriramChangeOption',
 	},
 
-	function EditList(props) {
+	function LineList(props) {
 		var collectionLines = props.datapacks[props.whichImage].timelines.map((timeline, index) => { 
 			return<LineInfo key={index} name={timeline.name} age={timeline.age} id = {index}/>;
 		})

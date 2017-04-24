@@ -1,0 +1,10 @@
+
+
+.column {
+	flex:   1;
+	display: flex;
+	border: 1px solid black;
+	overflow: auto;
+	flex-flow: column nowrap;
+	text-align: center;
+}

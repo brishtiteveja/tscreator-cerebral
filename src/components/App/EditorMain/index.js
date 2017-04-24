@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from '../function.css'
+import './EditorMain.css'
 import EditList from '../EditList'
 import ImageEdited from '../ImageEdited'
 import LineList from '../LineList'

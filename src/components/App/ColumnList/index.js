@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './ColumnList.css'
 import Column from '../Column'
 
 export default connect({

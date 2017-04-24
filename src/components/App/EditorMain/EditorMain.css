@@ -1,0 +1,28 @@
+
+.mainEditGallery {
+	display: flex;
+	flex-flow: row nowrap;
+	text-align: center;
+	height: 90%;
+	width: 95%;
+	color: black;
+	border: 3px solid black;
+	position: absolute;
+}
+.imageEditor {
+	display: flex;
+	flex-flow: column nowrap;
+	flex: 4;
+}
+.toolbar {
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.anvil {
+	flex: 15;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}

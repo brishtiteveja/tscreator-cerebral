@@ -1,7 +1,8 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './Text.css'
+
 export default connect(
 	{
 		contents: 'app.contents',

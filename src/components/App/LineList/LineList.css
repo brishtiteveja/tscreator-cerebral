@@ -1,0 +1,44 @@
+
+.lineInfo {
+	width: 100%;
+	height: 5%;
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-content: space-around;
+	overflow: auto;
+}
+.timeGallery {
+	flex: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	border: 1px solid black;
+	overflow: auto;
+	justify-content: flex-start;
+	color: white;
+	background-color: black;
+	align-content: center;
+}
+.refInfo {
+	width: 100%;
+	height: 20%;
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-flow: column nowrap;
+	overflow: auto;
+	align-content: flex-center;
+}
+.choiceInfo {
+	width: 100%;
+	height: 20%;
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-content: space-around;
+	overflow: auto;
+}

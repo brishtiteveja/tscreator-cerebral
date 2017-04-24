@@ -1,7 +1,7 @@
 import React from 'react'
 import Line from '../Line'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './ImageEdited.css'
 import references from './references'
 
 export default connect(

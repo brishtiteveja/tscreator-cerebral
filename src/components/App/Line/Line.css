@@ -1,0 +1,10 @@
+
+.timeline:hover {
+	cursor: pointer;
+	color: white;
+}
+.timelinedragging {
+	cursor: pointer;
+	cursor: grab;
+	cursor: grabbing;
+}

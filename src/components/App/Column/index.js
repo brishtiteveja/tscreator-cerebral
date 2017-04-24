@@ -1,7 +1,8 @@
 import React from 'react'
 import Text from '../Text'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './Column.css'
+
 export default connect(
 	{},	
 	{

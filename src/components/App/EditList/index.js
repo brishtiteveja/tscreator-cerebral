@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral-view-react'
-import style from'../function.css'
+import './EditList.css'
 import Thumbnail from '../Thumbnail'
 
 export default connect({
