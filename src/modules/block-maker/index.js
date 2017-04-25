@@ -3,6 +3,7 @@ import {
   moveBoundary,
   moveTimeline,
   showBlockMaker,
+  updateOffsets,
 } from './actions';
 
 export default module => {
@@ -17,6 +18,8 @@ export default module => {
     ],
     boundaries: [],
 	displayBlock: false,
+	left: 0,
+	width: 0,
   });
 
   // Signals:
@@ -25,6 +28,7 @@ export default module => {
     boundaryMoveRequested: [ moveBoundary ],
     timelineMoveRequested: [ moveTimeline ],
 	showBlockMakerRequested: [ showBlockMaker],
+	updateOffsetsRequested: [ updateOffsets ],
   });
 
 

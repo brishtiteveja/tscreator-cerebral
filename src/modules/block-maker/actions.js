@@ -19,3 +19,8 @@ export const showBlockMaker = ({module}) => {
 		module.state.set(['displayBlock'], true);
 	}
 }
+
+export const updateOffsets = ({input,module}) => {
+  module.state.set(['width'], input.width);
+  module.state.set(['left'], input.left);
+}

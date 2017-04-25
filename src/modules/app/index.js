@@ -42,7 +42,7 @@ export default module => {
 		currentExport: null,
 		datapacks: [],
 		hideEditList: true,
-		hideTimeList: true,
+		hideTimeList: false,
 		svgTop: 0,
 		svgHeight: 0,
 		hideRef: false,

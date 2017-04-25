@@ -5,6 +5,10 @@ import {connect} from 'cerebral-view-react';
 import './BlockBoundary.css';
 
 export default connect({
+	width: 'blockmaker.width',
+	left: 'blockmaker.left',
+	datapacks: 'app.datapacks',
+	whichImage: 'app.whichImage',
 },{
 
   boundaryMoveRequested: 'blockmaker.boundaryMoveRequested',
@@ -12,10 +16,14 @@ export default connect({
 }, props => {
 
   const dragStopped = evt => {
-    // evt.clientX holds the new x position
+	var myImage = new Image();
+	myImage.src = props.datapacks[props.whichImage].backgroundImage.dataURL;
+	var height = myImage.height;
+	var width = myImage.width;
+    var position = (evt.clientX - props.left) * width / props.width;
     props.boundaryMoveRequested({ 
       id: props.boundaryid,
-      x: evt.clientX,
+      x: position,
     });
   };
 
