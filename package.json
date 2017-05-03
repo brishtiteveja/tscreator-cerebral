@@ -27,11 +27,12 @@
     "babel-preset-stage-0": "^6.5.0",
     "cerebral": "^1.0.0",
     "cerebral-module-devtools": "^0.7.0",
+    "cerebral-provider-modules": "^0.1.2",
     "cerebral-view-react": "^0.12.4",
     "html-webpack-plugin": "^2.21.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-draggable": "^2.2.3",
+    "react-draggable": "^2.2.6",
     "react-dropzone": "^3.12.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
