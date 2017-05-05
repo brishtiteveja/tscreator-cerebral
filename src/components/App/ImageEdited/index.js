@@ -2,7 +2,6 @@ import React from 'react'
 import Line from '../Line'
 import {connect} from 'cerebral-view-react'
 import './ImageEdited.css'
-import references from './references'
 
 export default connect(
 	{
@@ -15,6 +14,7 @@ export default connect(
 		updateLines: 'app.sriramLineClicked',
 		updateExport: 'app.sriramExportImage',
 		updateOffsets: 'app.sriramUpdateOffsets',
+		addRefLines: 'app.sriramAddRefLines',
 	},
 	
 	function ImageEdited(props) {
@@ -36,20 +36,7 @@ export default connect(
 			}
 		}
 		
-		if(props.refOption != "None") {
-			var targ = references;
-			console.log(targ.Age);
-			if(props.refOption == "Period") {
-				targ = references.Period;
-			}
-			if(props.refOption == "Epoch") {
-				targ = references.Epoch;
-			}
-			if(props.refOption == "Stage") {
-				targ = references.Stage;
-			}
-			console.log(targ);
-		}
+		
 		
 		var lineStuff = props.datapacks[props.whichImage].timelines.map((timeline, index) => { 
 			return <Line key={index} id={index} width={width} y={timeline.y} height={height}/>;

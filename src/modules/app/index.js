@@ -22,6 +22,7 @@ import updateOffsets from './chains/updateOffsets'
 import hideRef from './chains/hideRef'
 import showApp from './chains/showApp'
 import changeOption from './chains/changeOption'
+import addRefLines from './chains/addRefLines'
 
 export default module => {
 
@@ -74,5 +75,6 @@ export default module => {
 		sriramHideRef: hideRef,
 		sriramShowApp: showApp,
 		sriramChangeOption: changeOption,
+		sriramAddRefLines: addRefLines,
 	});
 };
