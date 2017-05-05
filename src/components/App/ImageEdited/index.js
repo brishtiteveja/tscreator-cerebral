@@ -42,8 +42,13 @@ export default connect(
 			return <Line key={index} id={index} width={width} y={timeline.y} height={height}/>;
 		})
 		
+		var zoneStuff = props.datapacks[props.whichImage].zones.map((zone, index) => { 
+			return <rect key={index} x="0" y={zone.top.y} width={width} height={zone.base.y - zone.top.y} className="zone"/>;
+		})
+		
 		return(
 			<svg className = "mainImage" viewBox = {"0 0 " + width + " " + height} height = {height} width = {width} id = "sriramEditImage">
+				{zoneStuff}
 				<image className = "actualImage" xlinkHref = {props.datapacks[props.whichImage].backgroundImage.dataURL} onDoubleClick = {insertTimeline}/>
 				{lineStuff}
 			</svg>

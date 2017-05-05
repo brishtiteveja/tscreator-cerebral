@@ -1,6 +1,8 @@
 import React from 'react';
 import Timeline from '../Timeline';
 import BlockBoundary from '../BlockBoundary';
+import Column from '../Column';
+import Block from '../Block';
 import {connect} from 'cerebral-view-react';
 import './BlockEditor.css'
 
@@ -12,6 +14,10 @@ export default connect({
      display: 'blockmaker.displayBlock',
 	 datapacks: 'app.datapacks',
 	 whichImage: 'app.whichImage',
+	 columns: 'blockmaker.columns',
+	 addBlock: 'blockmaker.addBlock',
+	 blocks: 'blockmaker.blocks',
+	 lines: 'blockmaker.lines',
 
 },{
 
@@ -20,6 +26,7 @@ export default connect({
   showApp: 'app.sriramShowApp',
   showBlock: 'blockmaker.showBlockMakerRequested',
   updateOffsets: 'blockmaker.updateOffsetsRequested',
+  newBlockLineRequested: 'blockmaker.newBlockLineRequested',
 
   // Main render function:
 }, props => {
@@ -35,21 +42,55 @@ export default connect({
 	var width = myImage.width;
 	
 	const dropBlockBoundary = evt => {
-		const dim = evt.target.getBoundingClientRect();
-		var position = (evt.clientX - dim.left) * width / dim.width;
-		props.updateOffsets({"left": dim.left, "width": dim.width});
-		props.newBlockBoundaryRequested({
-			x: position
-		});
+		if(!props.addBlock) {
+			const dim = evt.target.getBoundingClientRect();
+			var position = (evt.clientX - dim.left) * width / dim.width;
+			props.updateOffsets({"left": dim.left, "width": dim.width});
+			props.newBlockBoundaryRequested({
+				x: position
+			});
+		} else {
+			const dim = evt.target.getBoundingClientRect();
+			var position = (evt.clientX - dim.left) * width / dim.width;
+			if(position > props.boundaries[0].x && position < props.boundaries[1].x) {
+				position = (evt.clientY - dim.top) * height / dim.height;
+				props.newBlockLineRequested({
+					y: position
+				});
+			}
+		}
 	};
 
-	return (
-		<div className = "anvil">
-			<svg width={width} height={height} onDoubleClick={dropBlockBoundary}>
-				<image x="0" y="0" xlinkHref={myImage.src} />
-				{props.datapacks[props.whichImage].timelines.map((t,i) => <Timeline key={'timeline'+i} timelineid={i} y={t.y} />)}
-				{props.boundaries.map((b,i) => <BlockBoundary key={'blockboundary'+i} boundaryid={i} x={b.x} />)}
-			</svg>
-		</div>
-	);
+	var colStuff = props.columns.map((column, index) => { 
+		return <Column key={index} x={column.left.x} width={column.right.x - column.left.x} height={height}/>;
+	})
+	
+	var blockStuff = props.blocks.map((block, index) => { 
+		return <Block key={index} x={block.left} y={block.top.y} width={block.width} height={block.base.y - block.top.y}/>;
+	})
+	
+	if(!props.addBlock) {
+		return (
+			<div className = "anvil">
+				<svg width={width} height={height} onDoubleClick={dropBlockBoundary}>
+					<image x="0" y="0" xlinkHref={myImage.src} />
+					{colStuff}
+					{props.datapacks[props.whichImage].timelines.map((t,i) => <Timeline key={'timeline'+i} timelineid={i} y={t.y} />)}
+					{props.boundaries.map((b,i) => <BlockBoundary key={'blockboundary'+i} boundaryid={i} x={b.x} />)}
+				</svg>
+			</div>
+		);
+	} else {
+		return (
+			<div className = "anvil">
+				<svg width={width} height={height} onDoubleClick={dropBlockBoundary}>
+					<image x="0" y="0" xlinkHref={myImage.src}/>
+					{props.datapacks[props.whichImage].timelines.map((t,i) => <Timeline key={'timeline'+i} timelineid={i} y={t.y} />)}
+					{props.boundaries.map((b,i) => <BlockBoundary key={'blockboundary'+i} boundaryid={i} x={b.x} />)}
+					{colStuff}
+					{blockStuff}
+				</svg>
+			</div>
+		);
+	}
 });

@@ -1,9 +1,13 @@
 import { 
   addNewBlockBoundary,
+  addNewBlockLine,
   moveBoundary,
   moveTimeline,
   showBlockMaker,
   updateOffsets,
+  updateColumns,
+  allowAddBlocks,
+  updateBlocks,
 } from './actions';
 
 export default module => {
@@ -17,18 +21,24 @@ export default module => {
       { y: 531, time: 15 },
     ],
     boundaries: [],
+	columns: [],
+	lines: [],
+	blocks: [],
 	displayBlock: false,
 	left: 0,
 	width: 0,
+	addBlock: false,
   });
 
   // Signals:
   module.addSignals({
-    newBlockBoundaryRequested: [ addNewBlockBoundary ],
-    boundaryMoveRequested: [ moveBoundary ],
+    newBlockBoundaryRequested: [ addNewBlockBoundary, updateColumns ],
+    boundaryMoveRequested: [ moveBoundary, updateColumns ],
     timelineMoveRequested: [ moveTimeline ],
 	showBlockMakerRequested: [ showBlockMaker],
 	updateOffsetsRequested: [ updateOffsets ],
+	allowAddBlockRequested: [ allowAddBlocks ],
+	newBlockLineRequested: [ addNewBlockLine, updateBlocks ],
   });
 
 

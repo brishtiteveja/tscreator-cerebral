@@ -1,0 +1,7 @@
+.block {
+	fill-opacity: 0.3;
+	stroke-opacity: 1;
+	stroke: black;
+	fill: blue;
+	stroke-width: 3;
+}

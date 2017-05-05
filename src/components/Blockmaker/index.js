@@ -18,6 +18,7 @@ export default connect({
   newBlockBoundaryRequested: 'blockmaker.newBlockBoundaryRequested',
   showApp: 'app.sriramShowApp',
   showBlock: 'blockmaker.showBlockMakerRequested',
+  allowBlock: 'blockmaker.allowAddBlockRequested',
 
   // Main render function:
 }, props => {
@@ -26,6 +27,10 @@ export default connect({
 		props.showApp();
 		props.showBlock();
 	};
+	
+	const addBlocks = () => {
+		props.allowBlock();
+	}
 
 	if(props.display) {
 		return (
@@ -33,6 +38,7 @@ export default connect({
 				<div className="blockEditor">
 					<div className = "toolbar">
 						<button onClick={retToApp}>Back</button>
+						<button onClick={addBlocks}>Block</button>
 					</div>
 					<BlockEditor/>
 					<div className = "toolbar">
