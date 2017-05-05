@@ -20,11 +20,18 @@ export default connect({
   showApp: 'app.sriramShowApp',
   showBlock: 'blockmaker.showBlockMakerRequested',
   updateOffsets: 'blockmaker.updateOffsetsRequested',
+  newBlockLineRequested: 'blockmaker.newBlockLineRequested',
 
   // Main render function:
 }, props => {
-
+	
+	const addBlock = evt => {
+		const dim = evt.target.getBoundingClientRect();
+		var position = (evt.clientY - dim.top) * props.height / dim.height;
+		props.newBlockLineRequested({index: props.index, y: position});
+	}
+	
 	return (
-		<rect x={props.x} y="0" width={props.width} height={props.height} className="column"/>
+		<rect x={props.x} y="0" width={props.width} height={props.height} className="column" onDoubleClick={addBlock}/>
 	);
 });

@@ -32,13 +32,13 @@ export default module => {
 
   // Signals:
   module.addSignals({
-    newBlockBoundaryRequested: [ addNewBlockBoundary, updateColumns ],
+    newBlockBoundaryRequested: [ addNewBlockBoundary, updateColumns, updateBlocks ],
     boundaryMoveRequested: [ moveBoundary, updateColumns ],
     timelineMoveRequested: [ moveTimeline ],
 	showBlockMakerRequested: [ showBlockMaker],
 	updateOffsetsRequested: [ updateOffsets ],
 	allowAddBlockRequested: [ allowAddBlocks ],
-	newBlockLineRequested: [ addNewBlockLine, updateBlocks ],
+	newBlockLineRequested: [ addNewBlockLine, updateBlocks],
   });
 
 

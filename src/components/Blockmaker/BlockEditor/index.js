@@ -46,23 +46,12 @@ export default connect({
 			const dim = evt.target.getBoundingClientRect();
 			var position = (evt.clientX - dim.left) * width / dim.width;
 			props.updateOffsets({"left": dim.left, "width": dim.width});
-			props.newBlockBoundaryRequested({
-				x: position
-			});
-		} else {
-			const dim = evt.target.getBoundingClientRect();
-			var position = (evt.clientX - dim.left) * width / dim.width;
-			if(position > props.boundaries[0].x && position < props.boundaries[1].x) {
-				position = (evt.clientY - dim.top) * height / dim.height;
-				props.newBlockLineRequested({
-					y: position
-				});
-			}
+			props.newBlockBoundaryRequested({index: 0, x: position});
 		}
 	};
 
 	var colStuff = props.columns.map((column, index) => { 
-		return <Column key={index} x={column.left.x} width={column.right.x - column.left.x} height={height}/>;
+		return <Column key={index} index = {index} x={column.left.x} width={column.right.x - column.left.x} height={height}/>;
 	})
 	
 	var blockStuff = props.blocks.map((block, index) => { 
@@ -73,8 +62,8 @@ export default connect({
 		return (
 			<div className = "anvil">
 				<svg width={width} height={height} onDoubleClick={dropBlockBoundary}>
-					<image x="0" y="0" xlinkHref={myImage.src} />
 					{colStuff}
+					<image x="0" y="0" xlinkHref={myImage.src} />
 					{props.datapacks[props.whichImage].timelines.map((t,i) => <Timeline key={'timeline'+i} timelineid={i} y={t.y} />)}
 					{props.boundaries.map((b,i) => <BlockBoundary key={'blockboundary'+i} boundaryid={i} x={b.x} />)}
 				</svg>
