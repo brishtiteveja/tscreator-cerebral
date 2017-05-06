@@ -3,13 +3,16 @@
 // the "items" array
 import references from './references'
 
-function remLines ({input, module}) {
+function refLines ({input, module}) {
 	var whichRef = module.state.get('refOption');
 	var targ = references;
-	var height = 300;
+	
+	var myImage = new Image();
+	myImage.src = module.state.get(['datapacks', module.state.get(['whichImage']), 'backgroundImage', 'dataURL']);
+	var height = myImage.height;
 
-	var lBound = 0;
-	var uBound = 15;
+	var lBound = module.state.get('topBound');
+	var uBound = module.state.get('baseBound');
 	var index = module.state.get('whichImage');
 	var timelines = module.state.get('datapacks.' + index + '.timelines');
 	var numLines = timelines.length;
@@ -56,9 +59,14 @@ function remLines ({input, module}) {
 			if(targ.timelines[i].age > uBound) {
 				temp = 0;
 			}
+			if(counter > 1 && temp != 0) {
+				var zone = {"name": targ.zones[i-1].name, "description": targ.zones[i-1].description, "top": module.state.get(['datapacks', index, 'timelines', i - 1]), "base": module.state.get(['datapacks', index, 'timelines', i]), "backgroundColor": targ.zones[i-1].backgroundColor};
+				module.state.push(['datapacks', index, 'zones'], zone);
+			}
 			i++;
+			
 		}
 	}
 }
 
-export default remLines
+export default refLines

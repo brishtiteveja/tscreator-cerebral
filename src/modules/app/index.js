@@ -23,6 +23,8 @@ import hideRef from './chains/hideRef'
 import showApp from './chains/showApp'
 import changeOption from './chains/changeOption'
 import addRefLines from './chains/addRefLines'
+import changeTopBound from './chains/changeTopBound'
+import changeBaseBound from './chains/changeBaseBound'
 
 export default module => {
 
@@ -48,6 +50,8 @@ export default module => {
 		svgHeight: 0,
 		hideRef: false,
 		refOption: "None",
+		topBound: 0,
+		baseBound: 15,
 	});
 	
 	module.addSignals({
@@ -76,5 +80,7 @@ export default module => {
 		sriramShowApp: showApp,
 		sriramChangeOption: changeOption,
 		sriramAddRefLines: addRefLines,
+		sriramChangeTop: changeTopBound,
+		sriramChangeBase: changeBaseBound,
 	});
 };

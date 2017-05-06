@@ -59,7 +59,7 @@ export default connect({
 		blocks = blocks.concat(props.columns[i].blocks);
 	}
 	var blockStuff = blocks.map((block, index) => { 
-		return <Block key={index} x={block.left} y={block.top.y} width={block.width} height={block.base.y - block.top.y} hex={block.fill}/>;
+		return <Block key={index} x={block.left} y={block.top.y} width={block.width} height={block.base.y - block.top.y} hex={block.fill} colIndex={block.colIndex}/>;
 	})
 	
 	if(!props.addBlock) {

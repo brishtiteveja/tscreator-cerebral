@@ -13,6 +13,7 @@ export default connect({
      display: 'blockmaker.displayBlock',
 	 datapacks: 'app.datapacks',
 	 whichImage: 'app.whichImage',
+	 exportContent: 'blockmaker.exportContent',
 
 },{
 
@@ -34,6 +35,10 @@ export default connect({
 		props.allowBlock();
 	}
 
+	const checkDownload = () => {
+		var text = encodeURIComponent(props.exportContent);
+		return ('data:text/plain;charset=utf-8,' + text);
+	}
 	if(props.display) {
 		return (
 			<div className = "outer">
@@ -44,7 +49,8 @@ export default connect({
 							<button onClick={addBlocks}>Block</button>
 						</div>
 						<BlockEditor/>
-						<div className = "toolbar">
+						<div className = "toolbar2">
+							Export: <a id = "exportLink" href= {checkDownload()} download = "block_datapack.txt"> Datapack </a>
 						</div>
 					</div>
 					<BlockList/>

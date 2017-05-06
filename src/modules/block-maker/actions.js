@@ -66,7 +66,7 @@ export const updateColumns = ({input, module}) => {
 		if(j < numBounds) {
 			var bound1 = module.state.get('boundaries.' + i);
 			var bound2 = module.state.get('boundaries.' + j);
-			var column = {"left": bound1, "right": bound2, "name": "Column" + i, "backgroundColor": "#FFFFFF", "lines": [], "blocks": []};
+			var column = {"left": bound1, "right": bound2, "name": "Column " + i, "backgroundColor": "#FFFFFF", "lines": [], "blocks": []};
 			columns.push(column);
 		}
 	}
@@ -94,7 +94,7 @@ export const updateBlocks = ({input, module}) => {
 				if(j < numLines) {
 					var bound1 = module.state.get(['columns', input.index, 'lines', i]);
 					var bound2 = module.state.get(['columns', input.index, 'lines', j]);
-					var block = {"top": bound1, "base": bound2, "left": left, "width": width, "name": "Block" + i, "backgroundColor": {r:0, g:0, b:255}, fill: "#0000FF"};
+					var block = {"top": bound1, "base": bound2, "left": left, "width": width, "description": "No description yet!", "name": "Block " + i, "backgroundColor": {r:0, g:0, b:255}, fill: "#0000FF", "colIndex": input.index};
 					blocks.push(block);
 				}
 			}
@@ -107,6 +107,7 @@ export const updateBlocks = ({input, module}) => {
 
 export const chooseCol = ({input,module}) => {
   module.state.set(['whichCol'], input.num);
+  module.state.set(['blockDesc'], -1);
 }
 
 export const allowChooseColor = ({input, module}) => {
@@ -124,4 +125,30 @@ export const setStateColor = ({input, module}) => {
 export const changeColor = ({input, module}) => {
 module.state.set(['columns', module.state.get(['whichCol']), 'blocks', module.state.get(['blockColor']), 'backgroundColor'], module.state.get(['color', 'rgb']))
 module.state.set(['columns', module.state.get(['whichCol']), 'blocks', module.state.get(['blockColor']), 'fill'], module.state.get(['color', 'hex']));
+}
+
+export const chooseBlock = ({input,module}) => {
+  module.state.set(['blockDesc'], input.num);
+}
+
+export const changeContent = ({input,module}) => {
+  module.state.set(['columns', module.state.get(['whichCol']), 'blocks', input.id, 'description'], input.text);
+}
+
+export const changeName = ({input,module}) => {
+  module.state.set(['columns', module.state.get(['whichCol']), 'blocks', input.id, 'name'], input.name);
+}
+
+export const updateTextExport = ({input,module}) => {
+	var text = "I don't know what the placeholder here is\r\n";
+	var columns = module.state.get(['columns']);
+	for(var i = 0; i < columns.length; i++) {
+		var width = columns[i].right.x - columns[i].left.x;
+		text += columns[i].name + "\t" + "block\t" + width + "\tUSGS-Named\r\n";
+		text += "\tTOP\tn/a\t\t\t\r\n";
+		for(var j = 0; j < columns[i].blocks.length; j++) {
+			text += "\t" + columns[i].blocks[j].name + "\tn/a\tsolid\t\t" + columns[i].blocks[j].backgroundColor.r + "/" + columns[i].blocks[j].backgroundColor.g + "/" + columns[i].blocks[j].backgroundColor.b + "\r\n";
+		}
+	}
+	module.state.set(['exportContent'], text);
 }

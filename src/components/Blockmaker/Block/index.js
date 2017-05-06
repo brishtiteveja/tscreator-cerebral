@@ -20,11 +20,16 @@ export default connect({
   showApp: 'app.sriramShowApp',
   showBlock: 'blockmaker.showBlockMakerRequested',
   updateOffsets: 'blockmaker.updateOffsetsRequested',
+  chooseCol: 'blockmaker.chooseColRequested',
 
   // Main render function:
 }, props => {
-
+	
+	const changeCol = evt => {
+		props.chooseCol({num: props.colIndex});
+	}
+	
 	return (
-		<rect x={props.x} y={props.y} width={props.width} height={props.height} style={{fill: props.hex}} className="block"/>
+		<rect x={props.x} y={props.y} width={props.width} height={props.height} style={{fill: props.hex}} className="block" onClick={changeCol}/>
 	);
 });

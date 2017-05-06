@@ -9,10 +9,15 @@ export default connect({
 	whichImage: 'app.whichImage',
 	setRef: 'app.hideRef',
 	refOption: 'app.refOption',
+	topBound: 'app.topBound',
+	baseBound: 'app.baseBound',
 },	
 	{
 		hideRef: 'app.sriramHideRef',
 		changeOption: 'app.sriramChangeOption',
+		changeTopBound: 'app.sriramChangeTop',
+		changeBaseBound: 'app.sriramChangeBase',
+		hideRef: 'app.sriramHideRef',
 	},
 
 	function LineList(props) {
@@ -25,6 +30,18 @@ export default connect({
 		const optionChanged = event => {
 			props.changeOption({"opt": event.target.value});
 		}
+		const onTopBoundChange = event => {
+			props.changeTopBound({"bound": event.target.value});
+		}
+		
+		const onBaseBoundChange = event => {
+			props.changeBaseBound({"bound": event.target.value});
+		}
+		
+		const onSuccess = event => {
+			props.hideRef();
+		}
+		
 		if(!props.hideTime && props.setRef) {
 			return(
 				<div className="timeGallery">
@@ -39,10 +56,10 @@ export default connect({
 					<div className="lineInfo"></div>
 					<div className="lineInfo">
 						<form>
-							Top: <input type="text" value="0" size="1"></input>
+							Top: <input type="text" value={props.topBound.toString()} onChange={onTopBoundChange} size="1"></input>
 						</form>
 						<form>
-							Base: <input type="text" value="15" size="1"></input>
+							Base: <input type="text" value={props.baseBound.toString()} onChange={onBaseBoundChange} size="1"></input>
 						</form>
 					</div>
 					<div className="lineInfo"></div>
@@ -64,8 +81,8 @@ export default connect({
 							<input type="radio" name="refType" value="None" checked={props.refOption=="None"} onChange={optionChanged}></input>
 							None
 						</label>
-						<button type="submit">Looks Good!</button>
 					</form>
+					<button type="button" onClick={onSuccess}>Looks Good!</button>
 				</div>
 			)
 		} else {

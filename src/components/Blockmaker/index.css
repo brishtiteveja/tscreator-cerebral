@@ -32,3 +32,9 @@
 	border:   1px solid black;
 	position: absolute;
 }
+.toolbar2 {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

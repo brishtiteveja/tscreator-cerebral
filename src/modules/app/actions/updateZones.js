@@ -13,7 +13,7 @@ function updateZones ({input, module}) {
 		if(j < numLines) {
 			var timeline1 = module.state.get('datapacks.' + index + '.timelines.' + i);
 			var timeline2 = module.state.get('datapacks.' + index + '.timelines.' + j);
-			var zone = {"top": timeline1, "base": timeline2, "name": "Zone" + i, "description": null, "backgroundColor": "#FFFFFF"};
+			var zone = {"top": timeline1, "base": timeline2, "name": "Zone" + i, "description": "", "backgroundColor": "#FFFFFF"};
 			zones.push(zone);
 		}
 	}

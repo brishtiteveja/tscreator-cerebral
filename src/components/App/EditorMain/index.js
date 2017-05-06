@@ -59,7 +59,7 @@ export default connect({
 							<ImageEdited title = {props.titles[props.whichImage]}/>
 						</div>
 						<div className = "toolbar">
-							<a id = "exportLink" href= {checkDownload()} download = {props.titles[props.whichImage] + ".json"}>Export Datapack</a>
+							<a id = "exportLink" href= {checkDownload()} download = {props.titles[props.whichImage] + ".json"}>Export JSON</a>
 						</div>
 					</div>
 					<LineList/>

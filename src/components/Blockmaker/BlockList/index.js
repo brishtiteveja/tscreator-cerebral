@@ -22,7 +22,7 @@ export default connect({
 		var collectionBlocks = [];
 		if(props.whichCol >= 0) {
 			collectionBlocks = props.columns[props.whichCol].blocks.map((block, index) => { 
-				return<BlockInfo key={index} name={block.name} age={block.width} hex={block.fill} id = {index}/>;
+				return<BlockInfo key={index} name={block.name} age={block.width} hex={block.fill} id = {index} textContent={block.description}/>;
 			});
 		}
 		const useReferences = () => {

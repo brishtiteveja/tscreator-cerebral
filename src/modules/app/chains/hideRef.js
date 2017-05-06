@@ -8,5 +8,5 @@ export default [
 
   // We use an action factory from cerebral-addons
   // to empty the value of our input
-  toggle('state:app.setRef'),
+  toggle('state:app.hideRef'),
 ]

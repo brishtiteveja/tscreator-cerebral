@@ -12,6 +12,10 @@ import {
   allowChooseColor,
   setStateColor,
   changeColor,
+  chooseBlock,
+  changeContent,
+  changeName,
+  updateTextExport,
 } from './actions';
 
 export default module => {
@@ -36,20 +40,25 @@ export default module => {
 	chooseColor: false,
 	color: {r: 0, g: 0, b: 0},
 	blockColor: 0,
+	blockDesc: -1,
+	exportContent: "",
   });
 
   // Signals:
   module.addSignals({
-    newBlockBoundaryRequested: [ addNewBlockBoundary, updateColumns, updateBlocks ],
-    boundaryMoveRequested: [ moveBoundary, updateColumns ],
+    newBlockBoundaryRequested: [ addNewBlockBoundary, updateColumns, updateBlocks, updateTextExport ],
+    boundaryMoveRequested: [ moveBoundary, updateColumns, updateTextExport ],
     timelineMoveRequested: [ moveTimeline ],
-	showBlockMakerRequested: [ showBlockMaker],
+	showBlockMakerRequested: [ showBlockMaker ],
 	updateOffsetsRequested: [ updateOffsets ],
 	allowAddBlockRequested: [ allowAddBlocks ],
-	newBlockLineRequested: [ addNewBlockLine, updateBlocks],
+	newBlockLineRequested: [ addNewBlockLine, updateBlocks, updateTextExport],
 	chooseColRequested: [ chooseCol ],
 	chooseColorRequested: [ allowChooseColor ],
-	colorChosen: [ setStateColor, changeColor ],
+	colorChosen: [ setStateColor, changeColor, updateTextExport ],
+	blockChosen: [ chooseBlock ],
+	changeContentRequested: [ changeContent, updateTextExport ],
+	changeNameRequested: [ changeName, updateTextExport ],
   });
 
 
