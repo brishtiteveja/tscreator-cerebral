@@ -54,8 +54,12 @@ export default connect({
 		return <Column key={index} index = {index} x={column.left.x} width={column.right.x - column.left.x} height={height}/>;
 	})
 	
-	var blockStuff = props.blocks.map((block, index) => { 
-		return <Block key={index} x={block.left} y={block.top.y} width={block.width} height={block.base.y - block.top.y}/>;
+	var blocks = [];
+	for(var i = 0; i < props.columns.length; i++) {
+		blocks = blocks.concat(props.columns[i].blocks);
+	}
+	var blockStuff = blocks.map((block, index) => { 
+		return <Block key={index} x={block.left} y={block.top.y} width={block.width} height={block.base.y - block.top.y} hex={block.fill}/>;
 	})
 	
 	if(!props.addBlock) {

@@ -1,0 +1,16 @@
+
+.chooser {
+	display:  flex;
+	flex-flow: column nowrap;
+	height:   250px;
+	width:    300px;
+	left:     40%;
+	top:      35%;
+	border:   1px solid black;
+	align-content: center;
+	background-color: black;
+	color: white;
+}
+.innerchooser {
+	flex:         1;
+}

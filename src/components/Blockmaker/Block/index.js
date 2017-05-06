@@ -25,6 +25,6 @@ export default connect({
 }, props => {
 
 	return (
-		<rect x={props.x} y={props.y} width={props.width} height={props.height} className="block"/>
+		<rect x={props.x} y={props.y} width={props.width} height={props.height} style={{fill: props.hex}} className="block"/>
 	);
 });

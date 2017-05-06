@@ -2,8 +2,8 @@
 	display: flex;
 	flex-flow: row nowrap;
 	text-align: center;
-	height: 90%;
-	width: 95%;
+	height: 100%;
+	width: 100%;
 	color: black;
 	border: 3px solid black;
 	position: absolute;
@@ -24,4 +24,11 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+.outer {
+	height:   90%;
+	width:    95%;
+	color:    black;
+	border:   1px solid black;
+	position: absolute;
 }

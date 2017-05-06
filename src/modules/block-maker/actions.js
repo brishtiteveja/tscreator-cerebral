@@ -64,7 +64,6 @@ export const updateColumns = ({input, module}) => {
 	for(i = 0; i < numBounds; i++) {
 		var j = i + 1;
 		if(j < numBounds) {
-			console.log(numBounds);
 			var bound1 = module.state.get('boundaries.' + i);
 			var bound2 = module.state.get('boundaries.' + j);
 			var column = {"left": bound1, "right": bound2, "name": "Column" + i, "backgroundColor": "#FFFFFF", "lines": [], "blocks": []};
@@ -95,8 +94,7 @@ export const updateBlocks = ({input, module}) => {
 				if(j < numLines) {
 					var bound1 = module.state.get(['columns', input.index, 'lines', i]);
 					var bound2 = module.state.get(['columns', input.index, 'lines', j]);
-					console.log(bound1);
-					var block = {"top": bound1, "base": bound2, "left": left, "width": width, "name": "Block" + i, "backgroundColor": "#FFFFFF"};
+					var block = {"top": bound1, "base": bound2, "left": left, "width": width, "name": "Block" + i, "backgroundColor": {r:0, g:0, b:255}, fill: "#0000FF"};
 					blocks.push(block);
 				}
 			}
@@ -105,11 +103,25 @@ export const updateBlocks = ({input, module}) => {
 			}
 		}
 	}
-	
-	numLines = module.state.get(['columns']).length;
-	for(i = 0; i < numLines; i++) {
-		if(module.state.get(['columns', i, 'blocks']).length) {
-			module.state.concat('blocks', module.state.get(['columns', i, 'blocks']));
-		}
-	}
+}
+
+export const chooseCol = ({input,module}) => {
+  module.state.set(['whichCol'], input.num);
+}
+
+export const allowChooseColor = ({input, module}) => {
+	module.state.set(['chooseColor'], !module.state.get(['chooseColor']));
+	var temp = module.state.get(['whichCol']);
+	module.state.set(['color'], module.state.get(['columns', temp, 'blocks', input.id, 'backgroundColor']));
+	module.state.set(['blockColor'], input.id);
+}
+
+export const setStateColor = ({input, module}) => {
+	module.state.set(['color'], input.color);
+	module.state.set(['chooseColor'], false);
+}
+
+export const changeColor = ({input, module}) => {
+module.state.set(['columns', module.state.get(['whichCol']), 'blocks', module.state.get(['blockColor']), 'backgroundColor'], module.state.get(['color', 'rgb']))
+module.state.set(['columns', module.state.get(['whichCol']), 'blocks', module.state.get(['blockColor']), 'fill'], module.state.get(['color', 'hex']));
 }

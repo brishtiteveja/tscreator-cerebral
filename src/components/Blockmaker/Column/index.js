@@ -21,6 +21,7 @@ export default connect({
   showBlock: 'blockmaker.showBlockMakerRequested',
   updateOffsets: 'blockmaker.updateOffsetsRequested',
   newBlockLineRequested: 'blockmaker.newBlockLineRequested',
+  chooseCol: 'blockmaker.chooseColRequested',
 
   // Main render function:
 }, props => {
@@ -31,7 +32,11 @@ export default connect({
 		props.newBlockLineRequested({index: props.index, y: position});
 	}
 	
+	const changeCol = evt => {
+		props.chooseCol({num: props.index});
+	}
+	
 	return (
-		<rect x={props.x} y="0" width={props.width} height={props.height} className="column" onDoubleClick={addBlock}/>
+		<rect x={props.x} y="0" width={props.width} height={props.height} className="column" onDoubleClick={addBlock} onClick={changeCol}/>
 	);
 });

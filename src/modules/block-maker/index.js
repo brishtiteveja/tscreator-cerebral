@@ -8,6 +8,10 @@ import {
   updateColumns,
   allowAddBlocks,
   updateBlocks,
+  chooseCol,
+  allowChooseColor,
+  setStateColor,
+  changeColor,
 } from './actions';
 
 export default module => {
@@ -28,6 +32,10 @@ export default module => {
 	left: 0,
 	width: 0,
 	addBlock: false,
+	whichCol: -1,
+	chooseColor: false,
+	color: {r: 0, g: 0, b: 0},
+	blockColor: 0,
   });
 
   // Signals:
@@ -39,6 +47,9 @@ export default module => {
 	updateOffsetsRequested: [ updateOffsets ],
 	allowAddBlockRequested: [ allowAddBlocks ],
 	newBlockLineRequested: [ addNewBlockLine, updateBlocks],
+	chooseColRequested: [ chooseCol ],
+	chooseColorRequested: [ allowChooseColor ],
+	colorChosen: [ setStateColor, changeColor ],
   });
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import BlockEditor from './BlockEditor';
+import BlockList from './BlockList';
+import ColorChooser from './ColorChooser'
 import {connect} from 'cerebral-view-react';
 import './index.css'
 
@@ -34,16 +36,20 @@ export default connect({
 
 	if(props.display) {
 		return (
-			<div className="mainBlockGallery">
-				<div className="blockEditor">
-					<div className = "toolbar">
-						<button onClick={retToApp}>Back</button>
-						<button onClick={addBlocks}>Block</button>
+			<div className = "outer">
+				<div className="mainBlockGallery">
+					<div className="blockEditor">
+						<div className = "toolbar">
+							<button onClick={retToApp}>Back</button>
+							<button onClick={addBlocks}>Block</button>
+						</div>
+						<BlockEditor/>
+						<div className = "toolbar">
+						</div>
 					</div>
-					<BlockEditor/>
-					<div className = "toolbar">
-					</div>
+					<BlockList/>
 				</div>
+				<ColorChooser/>
 			</div>
 		);
 	} else {
