@@ -1,7 +1,7 @@
 {
-  "name": "tscreator-cerebral-react",
+  "name": "Universal_Datapack_Maker",
   "version": "0.1.0",
-  "description": "Example app for Cerebral website tutorial",
+  "description": "App for unifying datapack maker",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/cerebral/cerebral-website-tutorial-basic/issues"
   },
-  "homepage": "https://github.com/cerebral/cerebral-website-tutorial-basic#readme",
+  "homepage": "",
   "dependencies": {
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
