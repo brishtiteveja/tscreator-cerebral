@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
-      title: 'Cerebral demo application',
+      title: 'Universal Datapack Maker',
       template: path.resolve('src', 'index.template.ejs')
     }),
     new webpack.DefinePlugin({
