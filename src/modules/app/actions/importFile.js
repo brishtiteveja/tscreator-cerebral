@@ -17,13 +17,15 @@ function importFile ({input, module}) {
 		}
 	} else {
 		module.state.push('imags', text);
-		var temp = new Image();
-		temp.src = text;
-		var height = temp.height;
-		var width = temp.width;
-		var background = {"isVisible": true, "isPreserveAspectRatio": true, "dataURL": text, "origWidth": width, "origHeight": height, "curWidth": width, "curHeight": height};
-		var image = {"backgroundImage": background, "timelines": [], "zones": []};
-		module.state.push('datapacks', image);
+		var img = new Image();
+		img.src = text;
+        img.onload = function() {
+		    var height = img.height;
+		    var width = img.width;
+		    var background = {"isVisible": true, "isPreserveAspectRatio": true, "dataURL": text, "origWidth": width, "origHeight": height, "curWidth": width, "curHeight": height};
+		    var image = {"backgroundImage": background, "timelines": [], "zones": []};
+		    module.state.push('datapacks', image);
+        }
 	}
 }
 
